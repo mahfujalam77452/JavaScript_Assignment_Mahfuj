@@ -1,3 +1,6 @@
+const defaultFavoriteIcon = '/assets/Icon/accomodation-icon/love.svg';
+const activeFavoriteIcon = 'https://upload.wikimedia.org/wikipedia/commons/c/c8/Love_Heart_symbol.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original';
+
 // Returns the maximum number of nearby properties to display
 // based on the current screen width.
 function getNearbyPropertiesLimit() {
@@ -155,11 +158,18 @@ function createNearbyPropertyCard(item) {
 							alt="Accommodation location"
 						>
 
-						<img
-							class="star-icon"
-							src="/assets/Icon/accomodation-icon/love.svg"
-							alt="Save accommodation"
+						<button
+							type="button"
+							class="favorite-btn"
+							data-property-id="${item.ID}"
+							aria-label="Save accommodation"
 						>
+							<img
+								class="star-icon"
+								src="${defaultFavoriteIcon}"
+								alt="Save accommodation"
+							>
+						</button>
 
 					</div>
 				</div>
@@ -284,6 +294,74 @@ function renderNearbyProperties(properties) {
 			createNearbyPropertyCard(item)
 		);
 	});
+
+	applyFavoriteStates();
+}
+
+// Reads saved property IDs and safely handles missing or invalid storage data.
+function getFavoriteIds() {
+	try {
+		const storedFavorites = localStorage.getItem('favoriteProperties');
+		const favoriteIds = storedFavorites ? JSON.parse(storedFavorites) : [];
+		return Array.isArray(favoriteIds) ? favoriteIds : [];
+	} catch (error) {
+		return [];
+	}
+}
+
+// Adds or removes one property ID from the saved favorites list.
+function toggleFavorite(propertyId) {
+	const favoriteIds = getFavoriteIds();
+	const favoriteIndex = favoriteIds.indexOf(propertyId);
+
+	if (favoriteIndex >= 0) {
+		favoriteIds.splice(favoriteIndex, 1);
+	} else {
+		favoriteIds.push(propertyId);
+	}
+
+	try {
+		localStorage.setItem('favoriteProperties', JSON.stringify(favoriteIds));
+	} catch (error) {
+		// The button state still works for this render if storage is unavailable.
+	}
+
+	return favoriteIndex < 0;
+}
+
+// Restores the active state for every favorite card after each API render.
+function applyFavoriteStates() {
+	const favoriteIds = getFavoriteIds();
+	document.querySelectorAll('.favorite-btn').forEach((button) => {
+		const isFavorited = favoriteIds.includes(button.dataset.propertyId);
+		updateFavoriteButton(button, isFavorited);
+	});
+}
+
+// Switches the heart image and accessibility state for one favorite button.
+function updateFavoriteButton(button, isFavorited) {
+	const icon = button.querySelector('.star-icon');
+	if (icon) icon.src = isFavorited ? activeFavoriteIcon : defaultFavoriteIcon;
+	button.classList.toggle('is-favorited', isFavorited);
+		button.setAttribute('aria-pressed', String(isFavorited));
+		button.setAttribute('aria-label', isFavorited ? 'Remove from favorites' : 'Save accommodation');
+}
+
+// Uses event delegation so dynamically recreated property cards keep working.
+function initFavorites() {
+	const cardsContainer = document.querySelector('.accomodations-cards');
+	if (!cardsContainer) return;
+
+	cardsContainer.addEventListener('click', (event) => {
+		const favoriteButton = event.target.closest('.favorite-btn');
+		if (!favoriteButton) return;
+
+		event.preventDefault();
+		const isFavorited = toggleFavorite(favoriteButton.dataset.propertyId);
+		updateFavoriteButton(favoriteButton, isFavorited);
+	});
+
+	applyFavoriteStates();
 }
 
 
@@ -596,6 +674,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// Initialize mobile/tablet carousel functionality.
 	initAccommodationCarousel();
+	initFavorites();
 
 
 	// Load "Most Popular" properties when the page opens.

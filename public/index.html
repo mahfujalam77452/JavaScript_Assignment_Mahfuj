@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="accommodation.css" />
     <link rel="stylesheet" href="header.css" />
     <link rel="stylesheet" href="gallery-modal.css" />
+    <link rel="stylesheet" href="booking-widgets.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hotel-datepicker@4.5.0/dist/css/hotel-datepicker.css" />
   </head>
   <body>
     <!-- This is the Header Section -->
@@ -287,10 +289,11 @@
       <div class="booking-card">
  
         <div class="booking-price">
-          USD $600 <span class="price-label">avg per night</span>
+          USD $2026 <span class="price-label">avg per night</span>
         </div>
  
         <div class="booking-dates">
+          <input class="booking-daterange-input" id="dateRangeInput" type="text" aria-label="Select check-in and check-out dates" readonly>
           <div class="booking-field">
             <span class="booking-field-label">Check-in</span>
             <span class="booking-field-value">19 Sep 2025</span>
@@ -303,7 +306,7 @@
  
         <div class="booking-guests">
           <span class="booking-field-label">Guests</span>
-          <span class="booking-field-value">3 Guests, 1 Infant, 1 Pet</span>
+          <span class="booking-field-value">1 Guests</span>
         </div>
  
         <div class="booking-availability">
@@ -317,11 +320,11 @@
         <div class="booking-price-breakdown">
           <div class="booking-price-row">
             <span>Price per night</span>
-            <span>USD $600</span>
+            <span>USD $2026</span>
           </div>
           <div class="booking-price-row total">
             <span>Total price</span>
-            <span>USD $600</span>
+            <span>USD $2026</span>
           </div>
         </div>
  
@@ -1862,8 +1865,36 @@
         <div class="gallery-modal__dots"></div>
       </div>
     </div>
+    <div class="guest-filter-modal" id="guestFilterModal" aria-hidden="true">
+      <div class="guest-filter-modal__backdrop"></div>
+      <div class="guest-filter-modal__content" role="dialog" aria-modal="true" aria-label="Guest filters">
+        <div class="guest-filter-modal__header">
+          <h3>Filters</h3>
+          <button type="button" class="guest-filter-modal__close" aria-label="Close filters">&times;</button>
+        </div>
+        <div class="guest-filter-row" data-type="guests">
+          <span>Guests</span><button type="button" class="guest-filter-decrement">&minus;</button>
+          <span class="guest-filter-count">1</span><button type="button" class="guest-filter-increment">+</button>
+        </div>
+        <div class="guest-filter-row" data-type="infants">
+          <span>Infants</span><button type="button" class="guest-filter-decrement">&minus;</button>
+          <span class="guest-filter-count">0</span><button type="button" class="guest-filter-increment">+</button>
+        </div>
+        <div class="guest-filter-row" data-type="pets">
+          <span>Pets</span><button type="button" class="guest-filter-decrement">&minus;</button>
+          <span class="guest-filter-count">0</span><button type="button" class="guest-filter-increment">+</button>
+        </div>
+      </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/current-device@0.10.2/umd/current-device.min.js"></script>
     <script src="/js/script.js"></script>
     <script src="/js/description.js"></script>
+    <!-- Fecha dependency -->
+<script src="https://cdn.jsdelivr.net/npm/fecha@4.2.1/dist/fecha.min.js"></script>
+
+<!-- Hotel Datepicker -->
+<script src="https://cdn.jsdelivr.net/npm/hotel-datepicker@4.5.0/dist/js/hotel-datepicker.min.js"></script>
+
+    <script src="/js/booking.js"></script>
   </body>
 </html>
