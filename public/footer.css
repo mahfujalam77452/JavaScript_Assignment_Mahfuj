@@ -1,0 +1,327 @@
+/* ==========================================================================
+   SECTION 6 — FOOTER
+   BEM namespace: .site-footer
+   Mobile-first. Link columns are 2-up on mobile (wrapping into 2 stacked
+   rows of 2) and 4-up in one row from tablet up.
+   ========================================================================== */
+
+.site-footer {
+  position: relative;
+  overflow: hidden;
+  color: #cfe3d6;
+  padding: var(--space-6) var(--space-4);
+}
+
+.site-footer__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.site-footer__overlay {
+  position: absolute;
+  inset: 0;
+  background-color: #16281d;
+  opacity: 0.88;
+  z-index: 1;
+}
+
+.site-footer__inner {
+  position: relative;
+  z-index: 2;
+}
+
+/* ---- Link columns ---- */
+
+.site-footer__links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 28px;
+  margin-bottom: var(--space-6);
+}
+
+.site-footer__col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.site-footer__col a {
+  color: #cfe3d6;
+  text-decoration: none;
+  font-size: 0.75rem;
+  line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.site-footer__col a:hover {
+  color: #ffffff;
+}
+
+/* ---- Social, currency/country selects, brand ---- */
+
+.site-footer__meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.site-footer__social {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.site-footer__social img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  /* The supplied SVGs are solid black; invert them so they read light
+     against this dark background instead of disappearing into it. */
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+}
+
+.site-footer__social a:hover img {
+  opacity: 1;
+}
+
+.site-footer__selects {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.site-footer__select-wrap {
+  display: block;
+}
+
+.site-footer__select-label {
+  /* Visually hidden: the select's own value ("USD", "United States") already
+     communicates its purpose in the design, but a real label keeps this
+     accessible to screen readers. */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.site-footer__select {
+  width: 70%;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 2px solid #3f5b49;
+  border-radius: 3px;
+  background-color: transparent;
+  color: #cfe3d6;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: inherit;
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #cfe3d6 50%),
+    linear-gradient(135deg, #cfe3d6 50%, transparent 50%);
+  background-position: calc(100% - 18px) center, calc(100% - 13px) center;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.site-footer__select:focus-visible {
+  outline: 2px solid #cfe3d6;
+  outline-offset: 2px;
+}
+
+.site-footer__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.site-footer__brand-mark {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.site-footer__brand-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+}
+
+.site-footer__brand-tagline {
+  font-size: 0.75rem;
+  color: #9db8a7;
+  line-height: 1.4;
+  padding-left: var(--space-2);
+  border-left: 1px solid #3f5b49;
+}
+
+.site-footer__copyright {
+  font-size: 0.6875rem;
+  color: #9db8a7;
+}
+
+/* ==========================================================================
+   TABLET — >= 768px
+   ========================================================================== */
+@media (min-width: 768px) {
+  .site-footer {
+    padding: 42px 0 30px;
+  }
+
+  .site-footer__inner {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .site-footer__links {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px 18px;
+    margin-bottom: 20px;
+  }
+
+  .site-footer__col {
+    min-width: 0;
+    gap: 2px;
+  }
+
+  .site-footer__col a {
+    font-size: 0.6875rem;
+    line-height: 1.25;
+    letter-spacing: 0.02em;
+  }
+
+  .site-footer__meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .site-footer__selects {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .site-footer__select {
+    width: 150px;
+    min-height: 44px;
+  }
+
+  .site-footer__social img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .site-footer__brand-mark {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* ==========================================================================
+   DESKTOP — >= 1024px
+   Links sit on the left; social icons, currency/country selects, and the
+   brand mark form a right-hand sidebar next to them; the copyright line
+   spans the full width underneath both.
+   ========================================================================== */
+@media (min-width: 1024px) {
+  .site-footer {
+    min-height: 700px;
+    padding: 208px 0 72px;
+    margin: 0;
+  }
+
+  .site-footer__inner {
+    width: min(80%, 1420px);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 455px;
+    align-items: flex-start;
+    column-gap: 72px;
+  }
+
+  .site-footer__links {
+    grid-column: 1;
+    grid-row: 1;
+    max-width: none;
+    margin-bottom: 0;
+    gap: 18px 64px;
+  }
+
+  .site-footer__col a {
+    font-size: 0.6875rem;
+    letter-spacing: 0.02em;
+  }
+
+  .site-footer__col {
+    min-width: 0;
+  }
+
+  .site-footer__meta {
+    grid-column: 2;
+    grid-row: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 0;
+    gap: 38px;
+  }
+
+  .site-footer__selects {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .site-footer__select {
+    width: 230px;
+    min-height: 52px;
+    padding: 0 18px;
+    border-color: #a7b56e;
+    font-size: 0.8125rem;
+  }
+
+  .site-footer__social {
+    gap: 28px;
+  }
+
+  .site-footer__social img {
+    width: 18px;
+    height: 18px;
+  }
+
+  .site-footer__brand {
+    gap: 12px;
+  }
+
+  .site-footer__brand-mark {
+    width: 44px;
+    height: 44px;
+  }
+
+  .site-footer__brand-name {
+    font-size: 2.25rem;
+    font-weight: 500;
+  }
+
+  .site-footer__brand-tagline {
+    font-size: 0.8125rem;
+    padding-left: 18px;
+  }
+
+  .site-footer__copyright {
+    grid-column: 2;
+    grid-row: 2;
+    width: 455px;
+    margin: 28px 0 0;
+    font-size: 0.8125rem;
+  }
+}

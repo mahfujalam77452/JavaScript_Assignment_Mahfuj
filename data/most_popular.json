@@ -1,0 +1,14 @@
+[
+  {
+    "name": "The Green Lodge",
+    "location": "Pine Valley",
+    "price": "$240",
+    "image": "/assets/images/property-01.jpg"
+  },
+  {
+    "name": "Cedar Fairway House",
+    "location": "Lakewood",
+    "price": "$185",
+    "image": "/assets/images/property-02.jpg"
+  }
+]

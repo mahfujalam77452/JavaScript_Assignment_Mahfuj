@@ -1,0 +1,106 @@
+/* ==========================================================================
+   SECTION 3 — EAGLE CREEK COURSE FEATURES
+   BEM namespace: .features
+   Mobile-first: cards stack on mobile, sit side by side from tablet up.
+   ========================================================================== */
+.features {
+  padding:0;
+  margin-top:1rem;
+}
+.features__title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-4);
+}
+
+.features__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+.features__card {
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.features__card--mint {
+  background-color: var(--color-mint-bg);
+}
+
+.features__card--white {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+}
+
+.features__card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.features__subtitle {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.features__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.features__list li {
+  position: relative;
+  padding-left: var(--space-4);
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.features__list li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.65em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--color-text-secondary);
+}
+
+.features__divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: var(--space-3) 0;
+}
+
+/* ==========================================================================
+   TABLET / DESKTOP — >= 768px
+   Two cards side by side, equal height.
+   ========================================================================== */
+@media (min-width: 768px) {
+  .features__grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+  }
+}
+
+@media (min-width: 1024px) {
+  .features{
+    width: 80%;
+    padding: 0;
+    margin: 3rem 0;
+  }
+  .features__title {
+    font-size: 1.25rem;
+  }
+
+  .features__card {
+    padding: var(--space-5);
+  }
+}

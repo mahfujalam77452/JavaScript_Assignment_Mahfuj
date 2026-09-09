@@ -1,0 +1,479 @@
+/* ==========================================================================
+   SECTION 7 — FIND THE PERFECT STAY NEAR EAGLE CREEK GOLF CLUB
+   BEM-ish namespace matches the class names in the client-supplied HTML
+   (.accomodations, .card-*, .pagination-*, etc. — spelling kept as given).
+   Mobile-first: base rules = mobile (<768px), then tablet (>=768px),
+   then desktop (>=1024px).
+   ========================================================================== */
+
+
+
+/* ---- Header: title + filter pills ---- */
+
+.accomodations-header {
+  margin-bottom: var(--space-5);
+}
+
+.accomodations-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-4);
+}
+
+.accomodations-filter {
+  display: flex;
+  gap: var(--space-3);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 2px; /* room so a focus ring isn't clipped */
+}
+
+.filter-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+
+.accomodations-filter select {
+
+  padding: var(--space-2) var(--space-6) var(--space-2) var(--space-4);
+  border: 1px solid var(--color-border-strong);
+  border-radius: 999px;
+  background-color: var(--color-white);
+  color: var(--color-text-primary);
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--color-text-secondary) 50%),
+    linear-gradient(135deg, var(--color-text-secondary) 50%, transparent 50%);
+  background-position: calc(100% - 18px) center, calc(100% - 13px) center;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+/* ---- Cards + map layout ---- */
+
+.accomodations-cards-and-map {
+  margin-bottom: var(--space-5);
+}
+
+.accomodations-cards {
+  display: flex;
+  gap: var(--space-4);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  margin-bottom: var(--space-4);
+}
+
+.accomodations-cards::-webkit-scrollbar {
+  display: none;
+}
+
+.accomodation-map {
+  display: none;
+}
+
+.map-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+/* ---- Card anatomy ---- */
+
+.accomodations-card {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+}
+
+.accomodations-card-content {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-image-container {
+  position: relative;
+}
+
+.card-image {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  display: block;
+}
+
+.image-info {
+  position: absolute;
+  inset: 0;
+  height: fit-content;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--space-3);
+}
+
+.image-info-text {
+  background-color: rgba(15, 30, 22, 0.55);
+  color: var(--color-white);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: var(--space-1) var(--space-3);
+  border-radius: 999px;
+}
+
+.image-info-icons {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.star-icon {
+  width: 28px;
+  height: 28px;
+  padding: 6px;
+  border-radius: 50%;
+  background-color: rgba(15, 30, 22, 0.45);
+  object-fit: contain;
+}
+
+.card-body {
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-rating {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.card-score {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.card-score::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: var(--color-focus);
+  /* A short white line rotated to suggest a checkmark, drawn without an
+     image since it's a purely decorative UI glyph. */
+  background-image: linear-gradient(135deg, transparent 42%, #fff 42%, #fff 58%, transparent 58%);
+}
+
+.card-review {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  padding-left: var(--space-2);
+  border-left: 1px solid var(--color-border);
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.card-provider {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-1);
+}
+
+.card-price {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-bottom: var(--space-2);
+}
+
+.card-price-amount {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-focus);
+}
+
+.card-price-icon {
+  width: 14px;
+  height: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-text-muted);
+  border-radius: 50%;
+  font-size: 0.625rem;
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+.card-description {
+  margin-bottom: var(--space-2);
+}
+
+.card-description-text {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  /* The provided copy is a full paragraph; clamp it to a few lines so the
+     card matches the compact height shown in the design (see README). */
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-location {
+  margin-bottom: var(--space-3);
+}
+
+.card-location-text {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.card-button-container {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: auto;
+}
+
+.learn-more-button,
+.see-dates-button {
+  flex: 1;
+  padding: var(--space-2) var(--space-3);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.learn-more-button {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-text-primary);
+}
+
+.see-dates-button {
+  background-color: var(--color-focus);
+  border: 1px solid var(--color-focus);
+  color: var(--color-white);
+}
+
+/* ---- Pagination ---- */
+
+.accomodation-pagination {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.pagination-items {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.prev-button,
+.next-button {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.pagination-list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  list-style: none;
+}
+
+.pagination-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.pagination-item:first-child .pagination-link {
+  color: var(--color-text-primary);
+}
+
+/* The "-" separator between the page list and NEXT has no equivalent mark
+   in the design, so it's hidden rather than guessed at (see README). */
+.pagination-items > span {
+  display: none;
+}
+
+.view-all-button {
+  width: 100%;
+}
+
+.view-all-link {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  padding: var(--space-2) var(--space-5);
+  border: 1px solid var(--color-border-strong);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  text-decoration: none;
+}
+
+/* Mobile-only: turn the numbered pagination into a row of small dots, since
+   the mobile design shows dot pagination for the single-card carousel but
+   the provided markup only has a numbered page list (see README). */
+@media (max-width: 767px) {
+  .prev-button,
+  .next-button {
+    display: none;
+  }
+
+  .pagination-link {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-border-strong);
+    font-size: 0;
+  }
+
+  .pagination-item:first-child .pagination-link {
+    background-color: var(--color-focus);
+  }
+}
+
+/* ==========================================================================
+   TABLET & DESKTOP SHARED — >= 768px
+   Both breakpoints show a 3-column card grid, the full numbered pagination
+   (not the mobile dots), and "View All" aligned to the right.
+   ========================================================================== */
+@media (min-width: 768px) {
+  .accomodations-filter {
+    overflow-x: visible;
+  }
+
+  .accomodations-cards {
+    overflow-x: visible;
+    scroll-snap-type: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+  }
+
+  .accomodations-card {
+    flex: initial;
+  }
+
+  .accomodation-map {
+    display: block;
+  }
+
+  .accomodation-pagination {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .view-all-button {
+    width: auto;
+  }
+
+  .view-all-link {
+    margin: 0;
+  }
+}
+
+/* ==========================================================================
+   TABLET ONLY — 768px to 1023px
+   Map sits full-width above the card grid (not beside it).
+   ========================================================================== */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  .accomodations-cards-and-map {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .accomodation-map {
+    width: 100%;
+    height: 280px;
+    margin-bottom: var(--space-4);
+  }
+}
+
+/* ==========================================================================
+   DESKTOP — >= 1024px
+   Map moves beside the card grid instead of stacking above it.
+   ========================================================================== */
+@media (min-width: 1024px) {
+
+  .accomodations{
+    width: 80%;
+    margin-top: 2rem;
+  }
+  
+  .accomodations-title {
+    font-size: 1.375rem;
+  }
+
+  .accomodations-cards-and-map {
+    
+    display: flex;
+    align-items: stretch;
+    gap: var(--space-4);
+  }
+
+  .accomodations-cards {
+    flex: 1 1 66%;
+    margin-bottom: 0;
+  }
+
+  .accomodation-map {
+    flex: 1 1 34%;
+    width: auto;
+    height: auto;
+  }
+  
+}

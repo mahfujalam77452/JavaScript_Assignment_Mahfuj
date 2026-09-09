@@ -1,0 +1,1849 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="this website is about booking a golf club for staying and playing"
+    />
+    <title>Golf club</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="hero-section.css" />
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="club-highlights.css" />
+    <link rel="stylesheet" href="features.css" />
+    <link rel="stylesheet" href="footer.css" />
+    <link rel="stylesheet" href="guest-reviews.css" />
+    <link rel="stylesheet" href="nearby-courses.css" />
+    <link rel="stylesheet" href="weather.css" />
+    <link rel="stylesheet" href="accommodation.css" />
+    <link rel="stylesheet" href="header.css" />
+  </head>
+  <body>
+    <!-- This is the Header Section -->
+     <header class="site-header">
+    <div class="header-container">
+ 
+      <a href="#" class="header-logo">
+        <!--  header logo icon URL -->
+        <img
+          src="/assets/Icon/header-icon/header_icon.svg"
+          alt="Stay and Play logo"
+          class="header-logo-icon"
+    
+          loading="lazy"
+        />
+        <span class="header-logo-text">
+          Stay<span class="header-logo-amp">&</span>Play
+        </span>
+      </a>
+ 
+      <!-- Desktop-only inline nav (hidden on tablet/mobile) -->
+      <nav class="header-nav" aria-label="Primary">
+        <ul class="header-nav-list">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Where To Stay</a></li>
+          <li><a href="#">Where To Play</a></li>
+          <li><a href="#">Group Travel</a></li>
+        </ul>
+      </nav>
+ 
+      <div class="header-actions">
+ 
+        <!-- Full "Book a Tee Time" button: shown on desktop and tablet -->
+        <button type="button" class="header-book-btn">
+          Book A Tee Time
+        </button>
+ 
+        <!-- Icon-only version of the same action: shown on mobile only -->
+        <button type="button" class="header-book-btn-icon" aria-label="Book a tee time">
+          <!--  tee-time icon URL -->
+          <img
+            src="/assets/Icon/header-icon/golf-ball.png"
+            alt="Golf ball"
+            width="16"
+            height="16"
+            loading="lazy"
+          />
+        </button>
+ 
+        <!-- Full search field: shown on desktop and tablet -->
+        <form class="header-search" role="search" action="#" method="get">
+          <input
+            type="text"
+            name="q"
+            class="header-search-input"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button type="submit" class="header-search-btn" aria-label="Search">
+            <!--  search icon URL -->
+            <img
+              src="/assets/Icon/header-icon/search_icon.svg"
+              alt="Search"
+              width="14"
+              height="14"
+              loading="lazy"
+            />
+          </button>
+        </form>
+ 
+        <!-- Icon-only version of search: shown on mobile only -->
+        <button type="button" class="header-search-btn-icon" aria-label="Search">
+          <!--  search icon URL -->
+          <img
+            src="/assets/Icon/header-icon/search_icon.svg"
+            alt="Search"
+            width="14"
+            height="14"
+            loading="lazy"
+          />
+        </button>
+ 
+        <!-- Menu toggle: shown on tablet and mobile only -->
+        <button
+          type="button"
+          class="header-menu-toggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+ 
+      </div>
+    </div>
+  </header>
+
+    <!-- Main content start from here -->
+    <main class="main-content">
+      <!-- Hero Section -->
+     
+<section class="hero">
+ 
+  
+  <!-- Breadcrumb: visible on mobile + tablet, hidden on desktop (see CSS) -->
+  <p class="breadcrumb">
+    Golf Course <span>&gt;</span> Florida <span>&gt;</span> Orlando <span>&gt;</span> Eagle Creek Golf Club
+  </p>
+ 
+  <!-- Title -->
+  <h1 class="hero-title">Eagle Creek Golf Club, Stay and Play</h1>
+ 
+  <!-- Rating & tee times -->
+  <div class="rating-row">
+    <!-- PASTE ICON LINK: star icon, reused 5x below (filled/empty controlled by which file you paste) -->
+    <div class="stars">
+      <img class="icon-star" src="/assets/Icon/four-star-rating-icon.svg" alt="Four-star rating">
+      
+  </div>
+    <span class="rating-score">9.0</span>
+    <span>(3 Reviews)</span>
+    <span class="rating-divider">|</span>
+    <span class="tee-times">
+      <!-- PASTE ICON LINK: clock icon -->
+      <img class="icon-clock" src="/assets/Icon/hero-section-icon/clock-watch-icon.svg" alt="Daily tee time hours">
+      Tee times daily 7 AM – 6 PM
+    </span>
+  </div>
+ 
+  <!-- Main layout: single column on mobile/tablet, main + sidebar row on desktop -->
+  <div class="hero-layout">
+ 
+    <div class="hero-main">
+ 
+      <!-- Mobile + Tablet image: single photo with dot carousel. Hidden on desktop. -->
+      <div class="gallery-carousel">
+        <!--  IMAGE LINK: mobile/tablet hero photo -->
+        <img class="hero-photo" src="/assets/images/hero-section-images/main-image.jpeg" alt="Eagle Creek Golf Club fairway with lakeside boardwalk">
+        <div class="carousel-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+ 
+      <!-- Desktop image: large photo + 2 stacked thumbnails + "View all" button. -->
+      <div class="gallery-grid">
+        <!--  IMAGE LINK: main desktop photo -->
+        <img class="gallery-main" src="/assets/images/hero-section-images/main-image.jpeg" alt="Eagle Creek Golf Club main course view">
+        <div class="gallery-thumbs">
+          <!-- IMAGE LINK: top-right desktop thumbnail -->
+          <img class="gallery-thumb top" src="/assets/images/hero-section-images/side-image-one.jpeg" alt="Eagle Creek Golf Club aerial view">
+          <!--  IMAGE LINK: bottom-right desktop thumbnail -->
+          <div class="gallery-thumb-below">
+              <img class="gallery-thumb bottom" src="/assets/images/hero-section-images/side-image-two.jpeg" alt="Eagle Creek Golf Club clubhouse view">
+             <button class="gallery-view-all" type="button">View all 20 images</button>
+          </div>
+
+
+          
+        </div>
+      </div>
+ 
+      <!-- Stay / Play cards: visible on mobile + tablet, hidden on desktop -->
+      <div class="stay-play-row">
+        <div class="info-card">
+          <span class="info-card-label stay">
+            <span class="info-card-icon stay">
+              <!--  ICON LINK: bed/stay icon (white, sits on blue circle) -->
+              <img class="icon-badge" src="/assets/Icon/hero-section-icon/bed.png" alt="Accommodation">
+            </span>
+            Stay
+          </span>
+          <div class="info-card-stats">
+            <span class="info-card-figure">
+              800+
+              <small>Places to stay nearby</small>
+            </span>
+            <!-- "From $300" only shows on tablet, hidden on mobile -->
+            <span class="info-card-figure stat-tablet-only">
+              $300
+              <small>From, per night</small>
+            </span>
+          </div>
+          <button type="button" class="info-card-btn stay">Book a place to stay</button>
+        </div>
+ 
+        <div class="info-card">
+          <span class="info-card-label play">
+            <span class="info-card-icon play">
+              <!-- ICON LINK: golf flag/play icon (white, sits on green circle) -->
+              <img class="icon-badge" src="/assets/Icon/hero-section-icon/golf-ball.png" alt="Golf tee time">
+            </span>
+            Play
+          </span>
+          <div class="info-card-stats">
+            <span class="info-card-figure">
+              $100
+              <small>Peak, round</small>
+            </span>
+            <!-- Off-peak / Twilight only show on tablet, hidden on mobile -->
+            <span class="info-card-figure stat-tablet-only">
+              $75
+              <small>Off-peak, round</small>
+            </span>
+            <span class="info-card-figure stat-tablet-only">
+              $60
+              <small>Twilight, round</small>
+            </span>
+          </div>
+          <button type="button" class="info-card-btn play">Book a tee time</button>
+        </div>
+      </div>
+ 
+      <!-- Description -->
+      <p class="description">
+        Eagle Creek Golf Club combines scenic views with a championship-level course that offers a memorable
+        golfing experience. Nestled amidst lush landscapes and serene water features, this course is known for
+        its challenging design and exceptional playing conditions, making it a must-play destination for golf
+        enthusiasts.
+        <a href="#" class="read-more">
+          Read more
+          <!--  ICON LINK: chevron-down icon -->
+          <img class="icon-chevron" src="/assets/Icon/hero-section-icon/down-arrow.png" alt="Expand description">
+        </a>
+      </p>
+ 
+      <!-- At a glance panel: stacked on mobile/tablet, one row on desktop -->
+      <div class="glance-panel">
+        
+        <p class="glance-title">Eagle Creek Golf Club at a glance</p>
+        <div class="glance-stats">
+          <span class="glance-stat">
+            <!--  ICON LINK: golf club/par icon -->
+            <img class="icon-glance" src="/assets/Icon/hero-section-icon/icons8-golf-hole-64.png" alt="Golf hole"> Par: 72
+          </span>
+          <span class="glance-stat">
+            <!--  ICON LINK: ruler/yards icon -->
+            <img class="icon-glance" src="/assets/Icon/hero-section-icon/measuring-tape-icon.svg" alt="Course measurement"> Total yards: 7305
+          </span>
+          <span class="glance-stat">
+            <!--  ICON LINK: people/public course icon -->
+            <img class="icon-glance" src="/assets/Icon/hero-section-icon/people-group-icon.svg" alt="Public course"> Public course
+          </span>
+        </div>
+       
+        
+        <button type="button" class="glance-cta">More course highlights</button>
+      </div>
+ 
+    </div><!-- /.hero-main -->
+ 
+    <!-- Booking sidebar card: desktop only, hidden on mobile + tablet -->
+    <aside class="booking-sidebar">
+      <div class="booking-card">
+ 
+        <div class="booking-price">
+          USD $600 <span class="price-label">avg per night</span>
+        </div>
+ 
+        <div class="booking-dates">
+          <div class="booking-field">
+            <span class="booking-field-label">Check-in</span>
+            <span class="booking-field-value">19 Sep 2025</span>
+          </div>
+          <div class="booking-field">
+            <span class="booking-field-label">Check-out</span>
+            <span class="booking-field-value">21 Sep 2025</span>
+          </div>
+        </div>
+ 
+        <div class="booking-guests">
+          <span class="booking-field-label">Guests</span>
+          <span class="booking-field-value">3 Guests, 1 Infant, 1 Pet</span>
+        </div>
+ 
+        <div class="booking-availability">
+          <span class="check-badge">
+            <!--  ICON LINK: checkmark icon (white, sits on green circle) -->
+            <img class="icon-check" src="/assets/Icon/hero-section-icon/accept-icon.svg" alt="Available">
+          </span>
+          Dates selected are available
+        </div>
+ 
+        <div class="booking-price-breakdown">
+          <div class="booking-price-row">
+            <span>Price per night</span>
+            <span>USD $600</span>
+          </div>
+          <div class="booking-price-row total">
+            <span>Total price</span>
+            <span>USD $600</span>
+          </div>
+        </div>
+ 
+        <button class="booking-cta" type="button">Check Availability</button>
+ 
+        <p class="booking-redirect-note">You will be redirected to <strong class="booking-brand">Booking.com</strong></p>
+
+        <div class="booking-hot-deal">
+          <!--  ICON LINK: fire/hot-deal icon -->
+          <img class="icon-fire" src="/assets/Icon/hero-section-icon/flame-icon.svg" alt="Hot deal">
+          Hot Deal – it has been viewed 30 times today
+        </div>
+      </div>
+
+      <p class="booking-not-fit">
+        Not the right fit? Check out our other Top Rated Bach Rentals in <a href="#">Orlando</a>
+      </p>
+    </aside>
+ 
+  </div><!-- /.hero-layout -->
+  
+ 
+</section>
+      <!-- Accomodations and Map -->
+
+      <section class="accomodations">
+        <div class="accomodations-header">
+          <h2 class="accomodations-title">
+            Find the perfect place to stay in Orlando,FL
+          </h2>
+          <div class="accomodations-filter">
+            <label class="filter-label" for="stay-distance">Stay within</label>
+            <select name="filter" id="stay-distance">
+              <option value="">STAY WITHIN 10 MILES</option>
+            </select>
+
+            <label class="filter-label" for="property-type">Property type</label>
+            <select name="filter" id="property-type">
+              <option value="">PROPERTY TYPE</option>
+            </select>
+            <label class="filter-label" for="bedrooms">Bedrooms</label>
+            <select name="filter" id="bedrooms">
+              <option value="">2 BEDROOM</option>
+            </select>
+            <label class="filter-label" for="sort-by">Sort by</label>
+            <select name="filter" id="sort-by">
+              <option value="">MOST POPULAR</option>
+            </select>
+          </div>
+        </div>
+        <div class="accomodations-cards-and-map">
+          <div class="accomodations-cards">
+            <div class="accomodations-card">
+              <div class="accomodations-card-content">
+                <!-- Contains the image and icons on images -->
+                <div class="card-image-container">
+                  <img
+                    src="/assets/images/accomodation-images/golf-card-1.jpeg"
+                    alt="accomodation one"
+                    class="card-image"
+                  />
+                  <div class="image-info">
+                    <p class="image-info-text">4.5 (3 REVIEWS)</p>
+                    <div class="image-info-icons">
+                      <img
+                        src="/assets/Icon/accomodation-icon/leaf.svg"
+                        alt="Eco-friendly accommodation"
+                        class="star-icon"
+                      />
+                      <img
+                        src="/assets/Icon/accomodation-icon/location.svg"
+                        alt="Accommodation location"
+                        class="star-icon"
+                      />
+                      <img
+                        src="/assets/Icon/accomodation-icon/love.svg"
+                        alt="Save accommodation"
+                        class="star-icon"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="card-rating">
+                    <span class="card-score"> 10.0 Exceptional </span>
+                    <span class="card-review"> 12 reviews </span>
+                  </div>
+                  <h3 class="card-title">Fairway Greens Resort</h3>
+                  <span class="card-provider">Booking.com</span>
+                  <div class="card-price">
+                    <span class="card-price-amount"> From $295 </span>
+                    <span class="card-price-icon">i</span>
+                  </div>
+                  <div class="card-description">
+                    <p class="card-description-text">
+                      Fairway Greens Resort is a 4-star property located in
+                      Orlando, Florida. It offers luxurious accommodations with
+                      modern amenities, including a swimming pool, fitness
+                      center, and complimentary Wi-Fi. Guests can enjoy spacious
+                      rooms with fully equipped kitchens, making it ideal for
+                      families and long-term stays. The resort is conveniently
+                      located near popular attractions, shopping centers, and
+                      dining options, providing a perfect base for exploring the
+                      city.
+                    </p>
+                  </div>
+                  <div class="card-location">
+                    <span class="card-location-text">
+                      Florida &gt; Orlando
+                    </span>
+                  </div>
+                  <div class="card-button-container">
+                    <button type="button" class="learn-more-button">Learn More</button>
+                    <button type="button" class="see-dates-button">See Dates</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accomodations-card">
+              <div class="accomodations-card-content">
+                <!-- Contains the image and icons on images -->
+                <div class="card-image-container">
+                  <img
+                    src="/assets/images/accomodation-images/golf-card-2.jpeg"
+                    alt="accomodation one"
+                    class="card-image"
+                  />
+                  <div class="image-info">
+                    <p class="image-info-text">4.5 (3 REVIEWS)</p>
+                    <div class="image-info-icons">
+                      <img
+                        src="/assets/Icon/accomodation-icon/leaf.svg"
+                        alt="Eco-friendly accommodation"
+                        class="star-icon"
+                      />
+                      <img
+                        src="/assets/Icon/accomodation-icon/location.svg"
+                        alt="Accommodation location"
+                        class="star-icon"
+                      />
+                      <img
+                        src="/assets/Icon/accomodation-icon/love.svg"
+                        alt="Save accommodation"
+                        class="star-icon"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="card-rating">
+                    <span class="card-score"> 10.0 Exceptional </span>
+                    <span class="card-review"> 12 reviews </span>
+                  </div>
+                  <h3 class="card-title">Fairway Greens Resort</h3>
+                  <span class="card-provider">Booking.com</span>
+                  <div class="card-price">
+                    <span class="card-price-amount"> From $295 </span>
+                    <span class="card-price-icon">i</span>
+                  </div>
+                  <div class="card-description">
+                    <p class="card-description-text">
+                      Fairway Greens Resort is a 4-star property located in
+                      Orlando, Florida. It offers luxurious accommodations with
+                      modern amenities, including a swimming pool, fitness
+                      center, and complimentary Wi-Fi. Guests can enjoy spacious
+                      rooms with fully equipped kitchens, making it ideal for
+                      families and long-term stays. The resort is conveniently
+                      located near popular attractions, shopping centers, and
+                      dining options, providing a perfect base for exploring the
+                      city.
+                    </p>
+                  </div>
+                  <div class="card-location">
+                    <span class="card-location-text">
+                      Florida &gt; Orlando
+                    </span>
+                  </div>
+                  <div class="card-button-container">
+                    <button type="button" class="learn-more-button">Learn More</button>
+                    <button type="button" class="see-dates-button">See Dates</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accomodations-card">
+              <div class="accomodations-card-content">
+                <!-- Contains the image and icons on images -->
+                <div class="card-image-container">
+                  <img
+                    src="/assets/images/accomodation-images/golf-card-3.jpeg"
+                    alt="accomodation one"
+                    class="card-image"
+                  />
+                  <div class="image-info">
+                    <p class="image-info-text">4.5 (3 REVIEWS)</p>
+                    <div class="image-info-icons">
+                      <img
+                        src="/assets/Icon/accomodation-icon/leaf.svg"
+                        alt="Eco-friendly accommodation"
+                        class="star-icon"
+                      />
+                      <img
+                        src="/assets/Icon/accomodation-icon/location.svg"
+                        alt="Accommodation location"
+                        class="star-icon"
+                      />
+                      <img
+                        src="/assets/Icon/accomodation-icon/love.svg"
+                        alt="Save accommodation"
+                        class="star-icon"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="card-rating">
+                    <span class="card-score"> 10.0 Exceptional </span>
+                    <span class="card-review"> 12 reviews </span>
+                  </div>
+                  <h3 class="card-title">Fairway Greens Resort</h3>
+                  <span class="card-provider">Booking.com</span>
+                  <div class="card-price">
+                    <span class="card-price-amount"> From $295 </span>
+                    <span class="card-price-icon">i</span>
+                  </div>
+                  <div class="card-description">
+                    <p class="card-description-text">
+                      Fairway Greens Resort is a 4-star property located in
+                      Orlando, Florida. It offers luxurious accommodations with
+                      modern amenities, including a swimming pool, fitness
+                      center, and complimentary Wi-Fi. Guests can enjoy spacious
+                      rooms with fully equipped kitchens, making it ideal for
+                      families and long-term stays. The resort is conveniently
+                      located near popular attractions, shopping centers, and
+                      dining options, providing a perfect base for exploring the
+                      city.
+                    </p>
+                  </div>
+                  <div class="card-location">
+                    <span class="card-location-text">
+                      Florida &gt; Orlando
+                    </span>
+                  </div>
+                  <div class="card-button-container">
+                    <button type="button" class="learn-more-button">Learn More</button>
+                    <button type="button" class="see-dates-button">See Dates</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accomodations-card">
+              <div class="accomodations-card-content">
+                <!-- Contains the image and icons on images -->
+                <div class="card-image-container">
+                  <img
+                    src="/assets/images/accomodation-images/golf-card-4.jpeg"
+                    alt="accomodation one"
+                    class="card-image"
+                  />
+                  <div class="image-info">
+                    <p class="image-info-text">4.5 (3 REVIEWS)</p>
+                    <div class="image-info-icons">
+                      <img
+                        src="/assets/Icon/accomodation-icon/leaf.svg"
+                        alt="Eco-friendly accommodation"
+                        class="star-icon"
+                      />
+                      <img
+                        src="/assets/Icon/accomodation-icon/location.svg"
+                        alt="Accommodation location"
+                        class="star-icon"
+                      />
+                      <img
+                        src="/assets/Icon/accomodation-icon/love.svg"
+                        alt="Save accommodation"
+                        class="star-icon"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="card-rating">
+                    <span class="card-score"> 10.0 Exceptional </span>
+                    <span class="card-review"> 12 reviews </span>
+                  </div>
+                  <h3 class="card-title">Fairway Greens Resort</h3>
+                  <span class="card-provider">Booking.com</span>
+                  <div class="card-price">
+                    <span class="card-price-amount"> From $295 </span>
+                    <span class="card-price-icon">i</span>
+                  </div>
+                  <div class="card-description">
+                    <p class="card-description-text">
+                      Fairway Greens Resort is a 4-star property located in
+                      Orlando, Florida. It offers luxurious accommodations with
+                      modern amenities, including a swimming pool, fitness
+                      center, and complimentary Wi-Fi. Guests can enjoy spacious
+                      rooms with fully equipped kitchens, making it ideal for
+                      families and long-term stays. The resort is conveniently
+                      located near popular attractions, shopping centers, and
+                      dining options, providing a perfect base for exploring the
+                      city.
+                    </p>
+                  </div>
+                  <div class="card-location">
+                    <span class="card-location-text">
+                      Florida &gt; Orlando
+                    </span>
+                  </div>
+                  <div class="card-button-container">
+                    <button type="button" class="learn-more-button">Learn More</button>
+                    <button type="button" class="see-dates-button">See Dates</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accomodations-card">
+              <div class="accomodations-card-content">
+                <!-- Contains the image and icons on images -->
+                <div class="card-image-container">
+                  <img
+                    src="/assets/images/accomodation-images/golf-card-5.jpeg"
+                    alt="accomodation one"
+                    class="card-image"
+                  />
+                  <div class="image-info">
+                    <p class="image-info-text">4.5 (3 REVIEWS)</p>
+                    <div class="image-info-icons">
+                      <img
+                        src="/assets/Icon/accomodation-icon/leaf.svg"
+                        alt="Eco-friendly accommodation"
+                        class="star-icon"
+                      />
+                      <img
+                        src="/assets/Icon/accomodation-icon/location.svg"
+                        alt="Accommodation location"
+                        class="star-icon"
+                      />
+                      <img
+                        src="/assets/Icon/accomodation-icon/love.svg"
+                        alt="Save accommodation"
+                        class="star-icon"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="card-rating">
+                    <span class="card-score"> 10.0 Exceptional </span>
+                    <span class="card-review"> 12 reviews </span>
+                  </div>
+                  <h3 class="card-title">Fairway Greens Resort</h3>
+                  <span class="card-provider">Booking.com</span>
+                  <div class="card-price">
+                    <span class="card-price-amount"> From $295 </span>
+                    <span class="card-price-icon">i</span>
+                  </div>
+                  <div class="card-description">
+                    <p class="card-description-text">
+                      Fairway Greens Resort is a 4-star property located in
+                      Orlando, Florida. It offers luxurious accommodations with
+                      modern amenities, including a swimming pool, fitness
+                      center, and complimentary Wi-Fi. Guests can enjoy spacious
+                      rooms with fully equipped kitchens, making it ideal for
+                      families and long-term stays. The resort is conveniently
+                      located near popular attractions, shopping centers, and
+                      dining options, providing a perfect base for exploring the
+                      city.
+                    </p>
+                  </div>
+                  <div class="card-location">
+                    <span class="card-location-text">
+                      Florida &gt; Orlando
+                    </span>
+                  </div>
+                  <div class="card-button-container">
+                    <button type="button" class="learn-more-button">Learn More</button>
+                    <button type="button" class="see-dates-button">See Dates</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accomodations-card">
+              <div class="accomodations-card-content">
+                <!-- Contains the image and icons on images -->
+                <div class="card-image-container">
+                  <img
+                    src="/assets/images/accomodation-images/golf-card-6.jpeg"
+                    alt="accomodation one"
+                    class="card-image"
+                  />
+                  <div class="image-info">
+                    <p class="image-info-text">4.5 (3 REVIEWS)</p>
+                    <div class="image-info-icons">
+                      <img
+                        src="/assets/Icon/accomodation-icon/leaf.svg"
+                        alt="Eco-friendly accommodation"
+                        class="star-icon"
+                      />
+                      <img
+                        src="/assets/Icon/accomodation-icon/location.svg"
+                        alt="Accommodation location"
+                        class="star-icon"
+                      />
+                      <img
+                        src="/assets/Icon/accomodation-icon/love.svg"
+                        alt="Save accommodation"
+                        class="star-icon"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="card-rating">
+                    <span class="card-score"> 10.0 Exceptional </span>
+                    <span class="card-review"> 12 reviews </span>
+                  </div>
+                  <h3 class="card-title">Fairway Greens Resort</h3>
+                  <span class="card-provider">Booking.com</span>
+                  <div class="card-price">
+                    <span class="card-price-amount"> From $295 </span>
+                    <span class="card-price-icon">i</span>
+                  </div>
+                  <div class="card-description">
+                    <p class="card-description-text">
+                      Fairway Greens Resort is a 4-star property located in
+                      Orlando, Florida. It offers luxurious accommodations with
+                      modern amenities, including a swimming pool, fitness
+                      center, and complimentary Wi-Fi. Guests can enjoy spacious
+                      rooms with fully equipped kitchens, making it ideal for
+                      families and long-term stays. The resort is conveniently
+                      located near popular attractions, shopping centers, and
+                      dining options, providing a perfect base for exploring the
+                      city.
+                    </p>
+                  </div>
+                  <div class="card-location">
+                    <span class="card-location-text">
+                      Florida &gt; Orlando
+                    </span>
+                  </div>
+                  <div class="card-button-container">
+                    <button type="button" class="learn-more-button">Learn More</button>
+                    <button type="button" class="see-dates-button">See Dates</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="accomodation-map">
+            <img
+              src="/assets/images/accomodation-images/map.jpeg"
+              alt="Map showing nearby accommodation locations"
+              class="map-image"
+            />
+          </div>
+        </div>
+        <div class="accomodation-pagination">
+          <div class="pagination-items">
+            <button type="button" class="prev-button">PREVIOUS</button>
+            <ol class="pagination-list">
+              <li class="pagination-item">
+                <a href="#" class="pagination-link">1</a>
+              </li>
+              <li class="pagination-item">
+                <a href="#" class="pagination-link">2</a>
+              </li>
+              <li class="pagination-item">
+                <a href="#" class="pagination-link">3</a>
+              </li>
+              <li class="pagination-item">
+                <a href="#" class="pagination-link">4</a>
+              </li>
+              <li class="pagination-item">
+                <a href="#" class="pagination-link">5</a>
+              </li>
+            </ol>
+            <span>-</span>
+            <button type="button" class="next-button">NEXT</button>
+          </div>
+          <div class="view-all-button">
+            <a href="#" class="view-all-link">View All</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================
+          EAGLE CREEK GOLF CLUB HIGHLIGHTS
+         ========================================================== -->
+      <section
+        class="highlights page-section"
+        aria-labelledby="highlights-heading"
+      >
+        <div class="page-section__inner">
+          <div class="highlights__panel">
+            <h2 id="highlights-heading" class="highlights__title">
+              Eagle Creek Golf Club Highlights
+            </h2>
+
+            <!-- Top info cards -->
+            <div class="highlights__cards">
+              <article class="highlights__card">
+                <div class="highlights__col">
+                  <div class="highlights__block">
+                    <!-- ICON:  "par-and-difficulty" icon URL -->
+                    <img
+                      class="highlights__block__icon"
+                      src="/assets/Icon/club-highlight/golf-course.png"
+                      alt="Par and Difficulty icon"
+                      width="28"
+                      height="28"
+                      loading="lazy"
+                    />
+                    <h3 class="highlights__block-title">Par and Difficulty</h3>
+                    <p class="highlights__block-text">
+                      Par 72 (Front 9: Par 36, Back 9: Par 36)
+                    </p>
+                    <p class="highlights__block-text">Course Rating: 71.4</p>
+                    <p class="highlights__block-text">Course Slope: 113</p>
+                    <p class="highlights__block-text">
+                      Challenging for experts, enjoyable for intermediates, and
+                      welcoming for beginners.
+                    </p>
+                  </div>
+                </div>
+                <div class="highlights__col">
+                  <div class="highlights__block">
+                    <!-- ICON:  "yardage" icon URL -->
+                    <img
+                      class="highlights__block__icon"
+                      src="/assets/Icon/club-highlight/ruler.png"
+                      alt="Yardage icon"
+                      width="28"
+                      height="28"
+                      loading="lazy"
+                    />
+                    <h3 class="highlights__block-title">Yardage</h3>
+                    <p class="highlights__block-text">
+                      7,198 yards from the championship tees
+                    </p>
+                    <p class="highlights__block-subtitle">Tee Box Options</p>
+                    <p class="highlights__block-text">
+                      Championship: 7,198 yards
+                    </p>
+                    <p class="highlights__block-text">Regular: 6,720 yards</p>
+                    <p class="highlights__block-text">Forward: 5,942 yards</p>
+                    <p class="highlights__block-text">Beginner: 5,152 yards</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="highlights__card">
+                <div class="highlights__col">
+                  <div class="highlights__block">
+                    <!-- ICON:  "public-course" icon URL -->
+                    <img
+                      class="highlights__block__icon"
+                      src="/assets/Icon/club-highlight/key-chain.png"
+                      alt="Public Course icon"
+                      width="28"
+                      height="28"
+                      loading="lazy"
+                    />
+                    <h3 class="highlights__block-title">Public Course</h3>
+                    <p class="highlights__block-text">No stay required</p>
+                  </div>
+                  <div class="highlights__block">
+                    <!-- ICON:  "cart-recommended" icon URL -->
+                    <img
+                      class="highlights__block__icon"
+                      src="/assets/Icon/club-highlight/rickshaw.png"
+                      alt="Cart Recommended icon"
+                      width="28"
+                      height="28"
+                      loading="lazy"
+                    />
+                    <h3 class="highlights__block-title">Cart Recommended</h3>
+                    <p class="highlights__block-text">Walking allowed</p>
+                  </div>
+                </div>
+                <div class="highlights__col">
+                  <div class="highlights__block">
+                    <!-- ICON:  "course-style" icon URL -->
+                    <img
+                      class="highlights__block__icon"
+                      src="/assets/Icon/club-highlight/leaf.png"
+                      alt="Course Style icon"
+                      width="28"
+                      height="28"
+                      loading="lazy"
+                    />
+                    <h3 class="highlights__block-title">Course Style</h3>
+                    <p class="highlights__block-text">Parkland</p>
+                  </div>
+                  <div class="highlights__block">
+                    <h3 class="highlights__block-title">Notable Features</h3>
+                    <p class="highlights__block-text">
+                      Tree-lined fairways, undulating greens, and strategically
+                      placed bunkers. Water hazards come into play on several
+                      holes.
+                    </p>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- Six-item feature list -->
+            <ul class="highlights__features">
+              <li class="highlights__feature">
+                <!-- ICON:  "18-hole-course" icon URL -->
+                <img
+                  class="highlights__feature-icon"
+                  src="/assets/Icon/club-highlight/ice-hockey.png"
+                  alt="18-Hole Championship Course icon"
+                  width="24"
+                  height="24"
+                  loading="lazy"
+                />
+                <div>
+                  <h3 class="highlights__feature-title">
+                    18-Hole Championship Course
+                  </h3>
+                  <p class="highlights__feature-text">
+                    Designed for all skill levels with challenging layouts.
+                  </p>
+                </div>
+              </li>
+              <li class="highlights__feature">
+                <!-- ICON:  "tee-time-flexibility" icon URL -->
+                <img
+                  class="highlights__feature-icon"
+                  src="/assets/Icon/club-highlight/clock.png"
+                  alt="Tee Time Flexibility icon"
+                  width="24"
+                  height="24"
+                  loading="lazy"
+                />
+                <div>
+                  <h3 class="highlights__feature-title">
+                    Tee Time Flexibility
+                  </h3>
+                  <p class="highlights__feature-text">
+                    Convenient booking options to suit your schedule.
+                  </p>
+                </div>
+              </li>
+              <li class="highlights__feature">
+                <!-- ICON:  "architect-and-history" icon URL -->
+                <img
+                  class="highlights__feature-icon"
+                  src="/assets/Icon/club-highlight/architect.png"
+                  alt="Architect and History icon"
+                  width="24"
+                  height="24"
+                  loading="lazy"
+                />
+                <div>
+                  <h3 class="highlights__feature-title">
+                    Architect and History
+                  </h3>
+                  <p class="highlights__feature-text">
+                    Designed by renowned architect Ron Garl, the course has
+                    hosted regional tournaments.
+                  </p>
+                </div>
+              </li>
+              <li class="highlights__feature">
+                <!-- ICON:  "luxury-clubhouse" icon URL -->
+                <img
+                  class="highlights__feature-icon"
+                  src="/assets/Icon/club-highlight/building.png"
+                  alt="Luxury Clubhouse icon"
+                  width="24"
+                  height="24"
+                  loading="lazy"
+                />
+                <div>
+                  <h3 class="highlights__feature-title">Luxury Clubhouse</h3>
+                  <p class="highlights__feature-text">
+                    Relax with premium dining, locker rooms, and event spaces.
+                  </p>
+                </div>
+              </li>
+              <li class="highlights__feature">
+                <!-- ICON:  "golf-lessons" icon URL -->
+                <img
+                  class="highlights__feature-icon"
+                  src="/assets/Icon/club-highlight/classroom.png"
+                  alt="Golf Lessons Available icon"
+                  width="24"
+                  height="24"
+                  loading="lazy"
+                />
+                <div>
+                  <h3 class="highlights__feature-title">
+                    Golf Lessons Available
+                  </h3>
+                  <p class="highlights__feature-text">
+                    Expert instruction for players of all levels.
+                  </p>
+                </div>
+              </li>
+              <li class="highlights__feature">
+                <!-- ICON:  "pro-shop" icon URL -->
+                <img
+                  class="highlights__feature-icon"
+                  src="/assets/Icon/club-highlight/parcel.png"
+                  alt="Pro Shop icon"
+                  width="24"
+                  height="24"
+                  loading="lazy"
+                />
+                <div>
+                  <h3 class="highlights__feature-title">Pro Shop</h3>
+                  <p class="highlights__feature-text">
+                    Fully stocked with top-tier gear, apparel, and accessories.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <hr class="highlights__divider" />
+
+          <div class="highlights__packages">
+            <span class="highlights__packages-label">Special Packages</span>
+            <p class="highlights__packages-text">
+              Stay &amp; Play packages include two rounds of golf, a cart, and
+              accommodations at a nearby resort starting at $250 per person.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================
+         SECTION 2: GUEST REVIEWS FOR EAGLE CREEK GOLF CLUB
+         ========================================================== -->
+      <section class="reviews page-section" aria-labelledby="reviews-heading">
+        <div class="page-section__inner">
+          <h2 id="reviews-heading" class="reviews__title">
+            Guest Reviews for Eagle Creek Golf Club
+          </h2>
+
+          <div class="reviews__list">
+            <article class="reviews__card">
+              <div class="reviews__meta">
+                <time class="reviews__date" datetime="2025-01-01"
+                  >Jan 01 2025</time
+                >
+                <!-- ICON:  "5-star-rating" icon URL -->
+                <img
+                  class="reviews__rating"
+                  src="/assets/Icon/5-star-rating.svg"
+                  alt="5 out of 5 stars"
+                  loading="lazy"
+                />
+              </div>
+              <p class="reviews__text">
+                Eagle Creek challenges your strategy and precision, making it a
+                perfect blend of fun and competitive play.
+              </p>
+              <div class="reviews__author">
+                <!-- IMAGE: replace src below with the reviewer's avatar URL -->
+                <img
+                  class="reviews__avatar"
+                  src="/assets/images/review/portfolio.jpg"
+                  alt="Photo of Golf Pro John Smith"
+                  width="28"
+                  height="28"
+                  loading="lazy"
+                />
+                <span class="reviews__author-name">Golf Pro John Smith</span>
+              </div>
+            </article>
+
+            <article class="reviews__card">
+              <div class="reviews__meta">
+                <time class="reviews__date" datetime="2025-01-01"
+                  >Jan 01 2025</time
+                >
+                <!-- ICON:  4.8-out-of-5-stars rating SVG URL -->
+                <img
+                  class="reviews__rating"
+                  src="/assets/Icon/four-star-rating-icon.svg"
+                  alt="4.8 out of 5 stars"
+                  loading="lazy"
+                />
+              </div>
+              <p class="reviews__text">
+                Average rating: 4.8/5 stars. Verified golfers praise the course
+                conditions and excellent service.
+              </p>
+              <div class="reviews__author">
+                <!-- IMAGE: reviewer's avatar URL -->
+                <img
+                  class="reviews__avatar"
+                  src="/assets/images/review/portfolio.jpg"
+                  alt="Photo of Golf Pro John Smith"
+                  width="28"
+                  height="28"
+                  loading="lazy"
+                />
+                <span class="reviews__author-name">Golf Pro John Smith</span>
+              </div>
+            </article>
+
+            <article class="reviews__card">
+              <div class="reviews__meta">
+                <time class="reviews__date" datetime="2025-01-01"
+                  >Jan 01 2025</time
+                >
+                <!-- ICON: 4-out-of-5-stars rating SVG URL -->
+                <img
+                  class="reviews__rating"
+                  src="/assets/Icon/four-star-rating-icon.svg"
+                  alt="4 out of 5 stars"
+                  loading="lazy"
+                />
+              </div>
+              <p class="reviews__text">
+                Lorem ipsum odoconse ctetue adi iscinama monuam adipiscing
+                eleifen hendre himen aeos dictum.
+              </p>
+              <div class="reviews__author">
+                <!-- IMAGE: reviewer's avatar URL -->
+                <img
+                  class="reviews__avatar"
+                  src="/assets/images/review/portfolio.jpg"
+                  alt="Photo of Golf Pro John Smith"
+                  width="28"
+                  height="28"
+                  loading="lazy"
+                />
+                <span class="reviews__author-name">Golf Pro John Smith</span>
+              </div>
+            </article>
+          </div>
+
+          <!-- Decorative pagination dots for the mobile carousel (CSS-only build:
+             they reflect the first slide by default since there is no JS to
+             sync them to scroll position — see README "Assumptions"). -->
+          <div class="reviews__dots" aria-hidden="true">
+            <span class="reviews__dot reviews__dot--active"></span>
+            <span class="reviews__dot"></span>
+            <span class="reviews__dot"></span>
+            <span class="reviews__dot"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================
+         SECTION 3: EAGLE CREEK COURSE FEATURES
+         ========================================================== -->
+      <section class="features page-section" aria-labelledby="features-heading">
+        <div class="page-section__inner">
+          <h2 id="features-heading" class="features__title">
+            Eagle Creek Course Features
+          </h2>
+
+          <div class="features__grid">
+            <article class="features__card features__card--mint">
+              <h3 class="features__card-title">Practice Facilities</h3>
+              <ul class="features__list">
+                <li>Driving range with target greens</li>
+                <li>Putting green</li>
+                <li>Short game area with sand bunkers</li>
+                <li>Professional lessons available</li>
+              </ul>
+            </article>
+
+            <article class="features__card features__card--mint">
+              <h3 class="features__card-title">Amenities and Services</h3>
+
+              <h4 class="features__subtitle">Caddies and Golf Cart Rentals</h4>
+              <ul class="features__list">
+                <li>
+                  Availability: Golf carts are equipped with GPS and available
+                  for rental. Caddie services are available upon request.
+                </li>
+                <li>Costs: Cart rentals: $25; Caddie fees: $40/hour.</li>
+              </ul>
+
+              <hr class="features__divider" />
+
+              <h4 class="features__subtitle">On-Course Food and Beverage</h4>
+              <ul class="features__list">
+                <li>
+                  Multiple snack bars and a halfway house are conveniently
+                  located. Beverage carts circulate regularly.
+                </li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================
+         SECTION 4: WHEN IS THE BEST TIME OF YEAR TO PLAY
+         ========================================================== -->
+      <section class="weather page-section" aria-labelledby="weather-heading">
+        <div class="page-section__inner">
+          <h2 id="weather-heading" class="weather__title">
+            When is the Best Time of Year to Play at Eagle Creek Golf Club?
+          </h2>
+          <p class="weather__intro">
+            Fall and Spring are the best seasons to play at Eagle Creek Golf
+            Club. During these months, the weather is mild with minimal rain,
+            providing perfect golfing conditions. Winter is also a great option
+            for those seeking year-round play in Florida's warmer climate.
+          </p>
+
+          <div class="weather-widget">
+            <div class="weather-widget__header">
+              <span class="weather-widget__date">Sunday Jan 19</span>
+              <span class="weather-widget__location">Orlando, Florida</span>
+            </div>
+
+            <!-- Big "today" readout: shown on mobile only, hidden from tablet up
+               because the day is already shown inline in the forecast list there. -->
+            <div class="weather-widget__current">
+              <!-- ICON:  today's weather icon URL -->
+              <img
+                class="weather-widget__current-icon"
+                src="/assets/images/weather-section/rainy.svg"
+                alt="Today's forecast icon"
+                width="36"
+                height="36"
+                loading="lazy"
+              />
+              <span class="weather-widget__current-temp">24&deg;C</span>
+            </div>
+
+            <ul class="weather-widget__forecast">
+              <li class="weather-widget__day weather-widget__day--current">
+                <span class="weather-widget__day-label">Sun</span>
+                <!-- ICON:  Sun weather icon URL -->
+                <img
+                  class="weather-widget__day-icon"
+                  src="/assets/images/weather-section/rainy.svg"
+                  alt="Sun forecast icon"
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                <span class="weather-widget__day-temp">-15.2&deg;C</span>
+              </li>
+              <li class="weather-widget__day">
+                <span class="weather-widget__day-label">Mon</span>
+                <!-- ICON:  Mon weather icon URL -->
+                <img
+                  class="weather-widget__day-icon"
+                  src="/assets/images/weather-section/rainy.svg"
+                  alt="Mon forecast icon"
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                <span class="weather-widget__day-temp">-15.2&deg;C</span>
+              </li>
+              <li class="weather-widget__day">
+                <span class="weather-widget__day-label">Tue</span>
+                <!-- ICON:  Tue weather icon URL -->
+                <img
+                  class="weather-widget__day-icon"
+                  src="/assets/images/weather-section/rainy.svg"
+                  alt="Tue forecast icon"
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                <span class="weather-widget__day-temp">-15.2&deg;C</span>
+              </li>
+              <li class="weather-widget__day">
+                <span class="weather-widget__day-label">Wed</span>
+                <!-- ICON:  Wed weather icon URL -->
+                <img
+                  class="weather-widget__day-icon"
+                  src="/assets/images/weather-section/rainy.svg"
+                  alt="Wed forecast icon"
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                <span class="weather-widget__day-temp">-15.2&deg;C</span>
+              </li>
+              <li class="weather-widget__day">
+                <span class="weather-widget__day-label">Thu</span>
+                <!-- ICON:  Thu weather icon URL -->
+                <img
+                  class="weather-widget__day-icon"
+                  src="/assets/images/weather-section/rainy.svg"
+                  alt="Thu forecast icon"
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                <span class="weather-widget__day-temp">-15.2&deg;C</span>
+              </li>
+              <li class="weather-widget__day">
+                <span class="weather-widget__day-label">Fri</span>
+                <!-- ICON:  Fri weather icon URL -->
+                <img
+                  class="weather-widget__day-icon"
+                  src="/assets/images/weather-section/rainy.svg"
+                  alt="Fri forecast icon"
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                <span class="weather-widget__day-temp">-15.2&deg;C</span>
+              </li>
+              <li class="weather-widget__day">
+                <span class="weather-widget__day-label">Sat</span>
+                <!-- ICON:  Sat weather icon URL -->
+                <img
+                  class="weather-widget__day-icon"
+                  src="/assets/images/weather-section/rainy.svg"
+                  alt="Sat forecast icon"
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                <span class="weather-widget__day-temp">-15.2&deg;C</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="seasons">
+            <h3 class="seasons__title">Explore Vancouver's Weather Patterns</h3>
+
+            <div class="seasons__list">
+            <article class="seasons__card">
+              <!-- ICON: "spring" season icon URL -->
+              <img
+                class="seasons__icon"
+                src="/assets/images/session-list-section/gear.svg"
+                alt="Spring (March to May) icon"
+                width="40"
+                height="40"
+                loading="lazy"
+              />
+              <h3 class="seasons__card-title">Spring (March to May)</h3>
+              <p class="seasons__card-text">
+                Ideal for hiking, with blooming wildflowers and mild
+                temperatures ranging from 60&deg;F to 80&deg;F. This is the most
+                popular season, so booking early is recommended.
+              </p>
+              <hr class="seasons__divider" />
+              <p class="seasons__avg-label">Average Temperature</p>
+              <p class="seasons__avg-line">Daytime: 60&deg;F to 80&deg;F</p>
+              <p class="seasons__avg-line">Nighttime: 40&deg;F to 55&deg;F</p>
+            </article>
+            <article class="seasons__card">
+              <!-- ICON: replace src below with the "summer" season icon URL -->
+              <img
+                class="seasons__icon"
+                src="/assets/images/session-list-section/sunny.svg"
+                alt="Summer (June to August) icon"
+                width="40"
+                height="40"
+                loading="lazy"
+              />
+              <h3 class="seasons__card-title">Summer (June to August)</h3>
+              <p class="seasons__card-text">
+                Ideal for hiking, with blooming wildflowers and mild
+                temperatures ranging from 60&deg;F to 80&deg;F. This is the most
+                popular season, so booking early is recommended.
+              </p>
+              <hr class="seasons__divider" />
+              <p class="seasons__avg-label">Average Temperature</p>
+              <p class="seasons__avg-line">Daytime: 60&deg;F to 80&deg;F</p>
+              <p class="seasons__avg-line">Nighttime: 40&deg;F to 55&deg;F</p>
+            </article>
+            <article class="seasons__card">
+              <!-- ICON:  "fall" season icon URL -->
+              <img
+                class="seasons__icon"
+                src="/assets/images/session-list-section/leaf.svg"
+                alt="Fall (September to November) icon"
+                width="40"
+                height="40"
+                loading="lazy"
+              />
+              <h3 class="seasons__card-title">Fall (September to November)</h3>
+              <p class="seasons__card-text">
+                Ideal for hiking, with blooming wildflowers and mild
+                temperatures ranging from 60&deg;F to 80&deg;F. This is the most
+                popular season, so booking early is recommended.
+              </p>
+              <hr class="seasons__divider" />
+              <p class="seasons__avg-label">Average Temperature</p>
+              <p class="seasons__avg-line">Daytime: 60&deg;F to 80&deg;F</p>
+              <p class="seasons__avg-line">Nighttime: 40&deg;F to 55&deg;F</p>
+            </article>
+            <article class="seasons__card">
+              <!-- ICON: "winter" season icon URL -->
+              <img
+                class="seasons__icon"
+                src="/assets/images/session-list-section/snowflake.svg"
+                alt="Winter (December to February) icon"
+                width="40"
+                height="40"
+                loading="lazy"
+              />
+              <h3 class="seasons__card-title">Winter (December to February)</h3>
+              <p class="seasons__card-text">
+                Cooler days and crisp evenings make it perfect for exploring
+                Sedona's trails and enjoying the vibrant autumn colors.
+              </p>
+              <hr class="seasons__divider" />
+              <p class="seasons__avg-label">Average Temperature</p>
+              <p class="seasons__avg-line">Daytime: 60&deg;F to 80&deg;F</p>
+              <p class="seasons__avg-line">Nighttime: 40&deg;F to 55&deg;F</p>
+            </article>
+            </div>
+
+            <!-- Decorative pagination dots for the mobile season carousel
+               (CSS-only build, so they don't track scroll position — see README). -->
+            <div class="seasons__dots" aria-hidden="true">
+              <span class="seasons__dot seasons__dot--active"></span>
+              <span class="seasons__dot"></span>
+              <span class="seasons__dot"></span>
+              <span class="seasons__dot"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================
+         SECTION 5: OTHER GOLF COURSES NEAR EAGLE CREEK GOLF CLUB
+         Desktop only — hidden on mobile and tablet (see CSS).
+         ========================================================== -->
+      <section
+        class="nearby-courses page-section"
+        aria-labelledby="nearby-courses-heading"
+      >
+        <div class="page-section__inner">
+          <h2 id="nearby-courses-heading" class="nearby-courses__title">
+            Other Golf Courses Near Eagle Creek Golf Club
+          </h2>
+
+          <div class="nearby-courses__track">
+            <article class="nearby-courses__card">
+              <!-- IMAGE: replace src below with a photo of Providence Golf Club -->
+              <img
+                class="nearby-courses__photo"
+                src="/assets/images/near-by-course-section/card-1.jpeg"
+                alt="Providence Golf Club"
+                loading="lazy"
+              />
+              <div class="nearby-courses__body">
+                <h3 class="nearby-courses__card-title">Providence Golf Club</h3>
+                <p class="nearby-courses__meta">
+                  <!-- IMAGE: replace src below with a location-pin icon URL -->
+                  <img
+                    class="nearby-courses__meta-icon"
+                    src="/assets/Icon/near-by/green-location.svg"
+                    alt="Distance location"
+                    width="14"
+                    height="14"
+                    loading="lazy"
+                  />
+                  6 Miles
+                </p>
+                <p class="nearby-courses__meta">
+                  <!-- IMAGE: replace src below with a yardage icon URL -->
+                  <img
+                    class="nearby-courses__meta-icon"
+                    src="/assets/Icon/near-by/ruler.png"
+                    alt="Course length"
+                    width="14"
+                    height="14"
+                    loading="lazy"
+                  />
+                  Yards: 7305
+                  <!-- IMAGE: replace src below with a par icon URL -->
+                  <img
+                    class="nearby-courses__meta-icon"
+                    src="/assets/Icon/near-by/golf-course.png"
+                    alt="Golf course par"
+                    width="14"
+                    height="14"
+                    loading="lazy"
+                  />
+                  Par: 72
+                </p>
+                <p class="nearby-courses__note">
+                  <!-- IMAGE: replace src below with a notable-win icon URL -->
+                  <img
+                    class="nearby-courses__meta-icon"
+                    src="/assets/Icon/near-by/golf-ball.png"
+                    alt="Golf course notable win"
+                    width="14"
+                    height="14"
+                    loading="lazy"
+                  />
+                  Phil Mickelson: Notable wins in the AT&amp;T Pebble Beach
+                  Pro-Am.
+                </p>
+                <div class="nearby-courses__actions">
+                  <a
+                    class="nearby-courses__btn nearby-courses__btn--outline"
+                    href="#"
+                    >Stay Nearby</a
+                  >
+                  <a
+                    class="nearby-courses__btn nearby-courses__btn--filled"
+                    href="#"
+                    >More Info</a
+                  >
+                </div>
+              </div>
+            </article>
+            <article class="nearby-courses__card">
+              <!-- IMAGE: replace src below with a photo of ChampionsGate Golf Club -->
+              <img
+                class="nearby-courses__photo"
+                src="/assets/images/near-by-course-section/card-2.jpeg"
+                alt="ChampionsGate Golf Club"
+                loading="lazy"
+              />
+              <div class="nearby-courses__body">
+                <h3 class="nearby-courses__card-title">
+                  ChampionsGate Golf Club
+                </h3>
+                <p class="nearby-courses__meta">
+                  <!-- IMAGE: replace src below with a location-pin icon URL -->
+                  <img
+                    class="nearby-courses__meta-icon"
+                    src="/assets/Icon/near-by/green-location.svg"
+                    alt="Distance location"
+                    width="14"
+                    height="14"
+                    loading="lazy"
+                  />
+                  6 Miles
+                </p>
+                <p class="nearby-courses__meta">
+                  <!-- IMAGE: replace src below with a yardage icon URL -->
+                  <img
+                    class="nearby-courses__meta-icon"
+                    src="/assets/Icon/near-by/ruler.png"
+                    alt="Course length"
+                    width="14"
+                    height="14"
+                    loading="lazy"
+                  />
+                  Yards: 7305
+                  <!-- IMAGE: replace src below with a par icon URL -->
+                  <img
+                    class="nearby-courses__meta-icon"
+                    src="/assets/Icon/near-by/golf-course.png"
+                    alt="Golf course par"
+                    width="14"
+                    height="14"
+                    loading="lazy"
+                  />
+                  Par: 72
+                </p>
+                <p class="nearby-courses__note">
+                  <!-- IMAGE: replace src below with a notable-win icon URL -->
+                  <img
+                    class="nearby-courses__meta-icon"
+                    src="/assets/Icon/near-by/golf-ball.png"
+                    alt="Golf course notable win"
+                    width="14"
+                    height="14"
+                    loading="lazy"
+                  />
+                  Phil Mickelson: Notable wins in the AT&amp;T Pebble Beach
+                  Pro-Am.
+                </p>
+                <div class="nearby-courses__actions">
+                  <a
+                    class="nearby-courses__btn nearby-courses__btn--outline"
+                    href="#"
+                    >Stay Nearby</a
+                  >
+                  <a
+                    class="nearby-courses__btn nearby-courses__btn--filled"
+                    href="#"
+                    >More Info</a
+                  >
+                </div>
+              </div>
+            </article>
+            <article class="nearby-courses__card">
+              <!-- IMAGE: replace src below with a photo of Nicklaus Course At Reunion Resort -->
+              <img
+                class="nearby-courses__photo"
+                src="/assets/images/near-by-course-section/card-3.png"
+                alt="Nicklaus Course At Reunion Resort"
+                loading="lazy"
+              />
+              <div class="nearby-courses__body">
+                <h3 class="nearby-courses__card-title">
+                  Nicklaus Course At Reunion Resort
+                </h3>
+                <p class="nearby-courses__meta">
+                  <!-- IMAGE: replace src below with a location-pin icon URL -->
+                  <img
+                    class="nearby-courses__meta-icon"
+                    src="/assets/Icon/near-by/green-location.svg"
+                    alt="Distance location"
+                    width="14"
+                    height="14"
+                    loading="lazy"
+                  />
+                  6 Miles
+                </p>
+                <p class="nearby-courses__meta">
+                  <!-- IMAGE: replace src below with a yardage icon URL -->
+                  <img
+                    class="nearby-courses__meta-icon"
+                    src="/assets/Icon/near-by/ruler.png"
+                    alt="Course length"
+                    width="14"
+                    height="14"
+                    loading="lazy"
+                  />
+                  Yards: 7305
+                  <!-- IMAGE: replace src below with a par icon URL -->
+                  <img
+                    class="nearby-courses__meta-icon"
+                    src="/assets/Icon/near-by/golf-course.png"
+                    alt="Golf course par"
+                    width="14"
+                    height="14"
+                    loading="lazy"
+                  />
+                  Par: 72
+                </p>
+                <p class="nearby-courses__note">
+                  <!-- IMAGE: replace src below with a notable-win icon URL -->
+                  <img
+                    class="nearby-courses__meta-icon"
+                    src="/assets/Icon/near-by/golf-ball.png"
+                    alt="Golf course notable win"
+                    width="14"
+                    height="14"
+                    loading="lazy"
+                  />
+                  Phil Mickelson: Notable wins in the AT&amp;T Pebble Beach
+                  Pro-Am.
+                </p>
+                <div class="nearby-courses__actions">
+                  <a
+                    class="nearby-courses__btn nearby-courses__btn--outline"
+                    href="#"
+                    >Stay Nearby</a
+                  >
+                  <a
+                    class="nearby-courses__btn nearby-courses__btn--filled"
+                    href="#"
+                    >More Info</a
+                  >
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="nearby-courses__controls">
+            <a class="nearby-courses__explore-btn" href="#"
+              >Explore More Courses</a
+            >
+            <!-- Decorative — a CSS-only build can't wire these to scroll the
+               track (see README "Assumptions"). -->
+            <button
+              type="button"
+              class="nearby-courses__arrow"
+              aria-label="Previous course"
+            >
+              &#8249;
+            </button>
+            <button
+              type="button"
+              class="nearby-courses__arrow"
+              aria-label="Next course"
+            >
+              &#8250;
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- ==========================================================
+         SECTION 6: FOOTER
+         ========================================================== -->
+    <footer class="site-footer">
+      <!-- IMAGE:  footer background photo URL -->
+      <img
+        class="site-footer__bg"
+        src="/assets/images/footer-section/footer-image.jpeg"
+        alt="Mountain and river landscape"
+        aria-hidden="true"
+        loading="lazy"
+      />
+      <div class="site-footer__overlay"></div>
+
+      <div class="site-footer__inner page-section__inner">
+        <nav class="site-footer__links" aria-label="Footer">
+          <ul class="site-footer__col">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Where To Stay</a></li>
+            <li><a href="#">Where To Play</a></li>
+            <li><a href="#">Group Travel</a></li>
+            <li><a href="#">Travel Blog</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Sitemap</a></li>
+          </ul>
+          <ul class="site-footer__col">
+            <li><a href="#">USA</a></li>
+            <li><a href="#">Scotland</a></li>
+            <li><a href="#">Portugal</a></li>
+            <li><a href="#">Spain</a></li>
+            <li><a href="#">Ireland</a></li>
+            <li><a href="#">Australia</a></li>
+            <li><a href="#">Turkey</a></li>
+            <li><a href="#">South Africa</a></li>
+          </ul>
+          <ul class="site-footer__col">
+            <li><a href="#">Thailand</a></li>
+            <li><a href="#">New Zealand</a></li>
+            <li><a href="#">UAE</a></li>
+            <li><a href="#">Canary Islands</a></li>
+            <li><a href="#">Mauritius</a></li>
+            <li><a href="#">Bermuda</a></li>
+            <li><a href="#">Argentina</a></li>
+            <li><a href="#">Barbados</a></li>
+          </ul>
+          <ul class="site-footer__col">
+            <li><a href="#">Mexico</a></li>
+            <li><a href="#">Canada</a></li>
+            <li><a href="#">China</a></li>
+            <li><a href="#">France</a></li>
+            <li><a href="#">Malaysia</a></li>
+            <li><a href="#">South Korea</a></li>
+            <li><a href="#">Japan</a></li>
+            <li><a href="#">Indonesia</a></li>
+          </ul>
+        </nav>
+
+        <div class="site-footer__meta">
+          <ul class="site-footer__social" aria-label="Social media">
+            <li>
+              <a href="#" aria-label="Facebook">
+                <!-- ICON:  the Facebook icon URL -->
+                <img
+                  src="/assets/Icon/footer-section/facebook-logo-90.svg"
+                  alt="Facebook"
+                  width="16"
+                  height="16"
+                  loading="lazy"
+                />
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="Twitter">
+                <!-- ICON:  Twitter icon URL -->
+                <img
+                  src="/assets/Icon/footer-section/twitter-99.svg"
+                  alt="Twitter"
+                  width="16"
+                  height="16"
+                  loading="lazy"
+                />
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="Instagram">
+                <!-- ICON:  Instagram icon URL -->
+                <img
+                  src="/assets/Icon/footer-section/black-instagram-logo-3496.svg"
+                  alt="Instagram"
+                  width="16"
+                  height="16"
+                  loading="lazy"
+                />
+              </a>
+            </li>
+          </ul>
+
+          <div class="site-footer__selects">
+            <label class="site-footer__select-wrap">
+              <span class="site-footer__select-label">Currency</span>
+              <select class="site-footer__select">
+                <option>USD</option>
+                <option>EUR</option>
+                <option>GBP</option>
+              </select>
+            </label>
+            <label class="site-footer__select-wrap">
+              <span class="site-footer__select-label">Country</span>
+              <select class="site-footer__select">
+                <option>United States</option>
+                <option>United Kingdom</option>
+                <option>Canada</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="site-footer__brand">
+            <!-- ICON:  TravelAi logo mark URL -->
+            <img
+              class="site-footer__brand-mark"
+              src="/assets/Icon/footer-section/travelai-logo-icon.svg"
+              alt="TravelAi logo"
+              width="20"
+              height="20"
+              loading="lazy"
+            />
+            <span class="site-footer__brand-name">TravelAi</span>
+            <span class="site-footer__brand-tagline"
+              >Stay&amp;Play<br />Powered by TravelAi</span
+            >
+          </div>
+        </div>
+
+        <p class="site-footer__copyright">
+          &copy; 2025 StayAndPlay. All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

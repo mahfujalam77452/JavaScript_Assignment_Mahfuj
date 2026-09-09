@@ -1,0 +1,10 @@
+node_modules/
+.env
+.env.*
+*.log
+*.key
+*.pem
+coverage/
+dist/
+build/
+task.md

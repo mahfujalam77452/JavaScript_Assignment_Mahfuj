@@ -1,0 +1,290 @@
+/* ==========================================================================
+   SECTION 1 — EAGLE CREEK GOLF CLUB HIGHLIGHTS
+   BEM namespace: .highlights
+   Mobile-first: base rules = mobile (<768px), then tablet (>=768px),
+   then desktop (>=1024px).
+   ========================================================================== */
+
+.highlights {
+  background-color: var(--color-white);
+}
+
+.highlights.highlights.page-section {
+    padding:  0;
+    margin-top:1rem;
+  }
+
+.highlights__panel {
+  background-color: var(--color-mint-bg);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+}
+
+.highlights__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-5);
+}
+
+/* ---- Top info cards (Par/Yardage, Public Course/Course Style) ---- */
+
+.highlights__cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.highlights__card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+}
+
+.highlights__col {
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.highlights__col + .highlights__col {
+  border-top: 1px solid var(--color-border);
+}
+
+.highlights__block__icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  margin-bottom: var(--space-2);
+}
+
+.highlights__block-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.highlights__block-text {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.highlights__block-text + .highlights__block-text {
+  margin-top: var(--space-3);
+}
+
+.highlights__block-subtitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-1);
+}
+
+/* ---- Six-item feature list (18-Hole Course, Tee Time, etc.) ---- */
+
+.highlights__features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.highlights__feature {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.highlights__feature-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.highlights__feature-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.highlights__feature-text {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+/* ---- Divider + special packages line ---- */
+
+.highlights__divider {
+  border: none;
+  border-top: 1px solid var(--color-border-strong);
+  margin: 1rem 0 var(--space-4);
+}
+
+.highlights__packages {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.highlights__packages-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--color-text-primary);
+}
+
+.highlights__packages-text {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   TABLET — >= 768px
+   Two info cards sit side by side; each card keeps its 2 internal columns.
+   Feature list moves to a 2-column grid.
+   ========================================================================== */
+@media (max-width: 767.98px) {
+  .highlights__cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-3);
+  }
+
+  .highlights__card {
+    display: contents;
+  }
+
+  .highlights__col {
+    min-width: 0;
+    padding: var(--space-3);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+  }
+
+  .highlights__col + .highlights__col {
+    border-left: 1px solid var(--color-border);
+  }
+
+  .highlights__block + .highlights__block {
+    margin-top: var(--space-4);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--color-border);
+  }
+}
+
+@media (min-width: 768px) {
+  .highlights.highlights.page-section {
+    padding:  0;
+  }
+
+  .highlights__cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-3);
+    align-items: stretch;
+  }
+
+  .highlights__card {
+    display: contents;
+  }
+
+  .highlights__col {
+    min-width: 0;
+    padding: var(--space-4);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+  }
+
+  .highlights__col + .highlights__col {
+    border-left: 1px solid var(--color-border);
+  }
+
+  .highlights__block + .highlights__block {
+    margin-top: var(--space-4);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .highlights__features {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .highlights__packages {
+    flex-direction: row;
+    align-items: baseline;
+    gap: var(--space-3);
+  }
+
+  .highlights__packages-label {
+    white-space: nowrap;
+  }
+}
+
+/* ==========================================================================
+   DESKTOP — >= 1024px
+   Slightly roomier panel padding and a wider title.
+   ========================================================================== */
+@media (min-width: 1024px) {
+  .highlights{
+    width: 80%;
+    margin: 3rem 0;
+    padding: 0;
+  }
+  .highlights__panel {
+    padding: var(--space-6);
+  }
+
+  .highlights__title {
+    font-size: 1.375rem;
+  }
+
+  .highlights__features {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: var(--space-5);
+  }
+
+  .highlights__cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-3);
+    align-items: stretch;
+  }
+
+  .highlights__card {
+    display: contents;
+  }
+
+  .highlights__col {
+    min-width: 0;
+    padding: var(--space-4);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+  }
+
+  .highlights__col + .highlights__col {
+    border-left: 1px solid var(--color-border);
+  }
+
+  .highlights__block + .highlights__block {
+    margin-top: var(--space-5);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .highlights__block-text {
+    line-height: 1.5;
+  }
+}

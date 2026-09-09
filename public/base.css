@@ -1,0 +1,107 @@
+/* ==========================================================================
+   BASE.CSS
+   Shared reset, design tokens, and global typography.
+   Each section below (Highlights, Reviews, Features) has its OWN stylesheet;
+   this file only holds the things every section needs in common so colors,
+   spacing, and type stay consistent across the page.
+   ========================================================================== */
+
+:root {
+  /* Color tokens */
+  --color-mint-bg: #e9f4ee;
+  --color-mint-bg-soft: #eef7f1;
+  --color-white: #ffffff;
+  --color-border: #e2e8e4;
+  --color-border-strong: #d8e3dc;
+  --color-text-primary: #1c2a22;
+  --color-text-secondary: #5b6b61;
+  --color-text-muted: #8a988f;
+  --color-focus: #2f7a4f;
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 40px;
+  --space-8: 56px;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* Type */
+  --font-base: "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial,sans-serif;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-base);
+  color: var(--color-text-primary);
+  background-color: var(--color-white);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+figure {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Visible keyboard focus for every interactive/focusable element on the page */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Shared page wrapper so every section lines up on the same max width/gutters */
+.page-section {
+  padding: var(--space-6) var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .page-section {
+    padding: var(--space-7) var(--space-5);
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-section {
+    padding: var(--space-8) var(--space-6);
+  }
+}
+
+

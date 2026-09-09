@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 24" width="100%" height="100%">
+  <defs>
+    <!-- Star Path definition -->
+    <g id="star">
+      <path d="M 12 2 
+               L 15.09 8.26 
+               L 22 9.27 
+               L 17 14.14 
+               L 18.18 21.02 
+               L 12 17.77 
+               L 5.82 21.02 
+               L 7 14.14 
+               L 2 9.27 
+               L 8.91 8.26 
+               Z" />
+    </g>
+  </defs>
+
+  <!-- Star 1 (Filled) -->
+  <use href="#star" x="0" y="0" fill="#22c55e" />
+
+  <!-- Star 2 (Filled) -->
+  <use href="#star" x="26" y="0" fill="#22c55e" />
+
+  <!-- Star 3 (Filled) -->
+  <use href="#star" x="52" y="0" fill="#22c55e" />
+
+  <!-- Star 4 (Filled) -->
+  <use href="#star" x="78" y="0" fill="#22c55e" />
+
+  <!-- Star 5 (Empty / Grayed Out) -->
+  <use href="#star" x="104" y="0" fill="#e5e7eb" />
+</svg>
