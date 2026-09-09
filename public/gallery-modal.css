@@ -1,0 +1,132 @@
+body.modal-open {
+  overflow: hidden;
+}
+
+.gallery-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-modal.is-open {
+  display: flex;
+}
+
+.gallery-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 30, 22, 0.88);
+}
+
+.gallery-modal__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: min(960px, calc(100% - 32px));
+  height: min(760px, calc(100% - 32px));
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-modal__track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 300ms ease;
+}
+
+.gallery-modal__track img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.gallery-modal__close,
+.gallery-modal__arrow {
+  position: absolute;
+  z-index: 2;
+  border: 0;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+}
+
+.gallery-modal__close {
+  top: 8px;
+  right: 8px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.gallery-modal__arrow {
+  top: 50%;
+  width: 42px;
+  height: 58px;
+  transform: translateY(-50%);
+  font-size: 38px;
+  line-height: 1;
+}
+
+.gallery-modal__arrow--prev {
+  left: 8px;
+}
+
+.gallery-modal__arrow--next {
+  right: 8px;
+}
+
+.gallery-modal__counter {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  z-index: 2;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.gallery-modal__dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  z-index: 2;
+  display: flex;
+  gap: 8px;
+  transform: translateX(-50%);
+}
+
+.gallery-modal__dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+}
+
+.gallery-modal__dot.active {
+  background: #fff;
+  transform: scale(1.25);
+}
+
+@media (max-width: 767px) {
+  .gallery-modal__content {
+    width: 100%;
+    height: 100%;
+  }
+
+  .gallery-modal__arrow {
+    width: 36px;
+    height: 48px;
+  }
+}

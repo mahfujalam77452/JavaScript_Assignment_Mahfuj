@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="weather.css" />
     <link rel="stylesheet" href="accommodation.css" />
     <link rel="stylesheet" href="header.css" />
+    <link rel="stylesheet" href="gallery-modal.css" />
   </head>
   <body>
     <!-- This is the Header Section -->
@@ -156,15 +157,15 @@
  
       <!-- Mobile + Tablet image: single photo with dot carousel. Hidden on desktop. -->
       <div class="gallery-carousel">
-        <!--  IMAGE LINK: mobile/tablet hero photo -->
-        <img class="hero-photo" src="/assets/images/hero-section-images/main-image.jpeg" alt="Eagle Creek Golf Club fairway with lakeside boardwalk">
-        <div class="carousel-dots">
-          <span class="dot active"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
+        <button class="gallery-carousel__arrow gallery-carousel__arrow--prev" type="button" aria-label="Previous image">&#8249;</button>
+        <div class="gallery-carousel__track"></div>
+        <button class="gallery-carousel__arrow gallery-carousel__arrow--next" type="button" aria-label="Next image">&#8250;</button>
+        <div class="carousel-dots" aria-label="Gallery image navigation">
+          <button class="dot active" type="button" data-inline-index="0" aria-label="Show image 1"></button>
+          <button class="dot" type="button" data-inline-index="1" aria-label="Show image 2"></button>
+          <button class="dot" type="button" data-inline-index="2" aria-label="Show image 3"></button>
+          <button class="dot" type="button" data-inline-index="3" aria-label="Show image 4"></button>
+          <button class="dot" type="button" data-inline-index="4" aria-label="Show image 5"></button>
         </div>
       </div>
  
@@ -239,12 +240,18 @@
  
       <!-- Description -->
       <p class="description">
-        Eagle Creek Golf Club combines scenic views with a championship-level course that offers a memorable
-        golfing experience. Nestled amidst lush landscapes and serene water features, this course is known for
-        its challenging design and exceptional playing conditions, making it a must-play destination for golf
-        enthusiasts.
+        <span class="description__short">
+          Eagle Creek Golf Club combines scenic views with a championship-level course that offers a memorable
+          golfing experience. Nestled amidst lush landscapes and serene water features, this course is known for
+          its challenging design and exceptional playing conditions, making it a must-play destination for golf
+          enthusiasts.
+        </span>
+        <span class="description__full" hidden>
+          The course offers a setting where visitors can take their time, enjoy the surroundings, and focus on
+          the experience of playing through the course.
+        </span>
         <a href="#" class="read-more">
-          Read more
+          <span class="read-more-label">Read more</span>
           <!--  ICON LINK: chevron-down icon -->
           <img class="icon-chevron" src="/assets/Icon/hero-section-icon/down-arrow.png" alt="Expand description">
         </a>
@@ -1844,7 +1851,19 @@
         </p>
       </div>
     </footer>
+    <div class="gallery-modal" id="galleryModal" aria-hidden="true">
+      <div class="gallery-modal__backdrop"></div>
+      <div class="gallery-modal__content" role="dialog" aria-modal="true" aria-label="Property image gallery">
+        <button type="button" class="gallery-modal__close" aria-label="Close gallery">&times;</button>
+        <div class="gallery-modal__counter"></div>
+        <button type="button" class="gallery-modal__arrow gallery-modal__arrow--prev" aria-label="Previous image">&#8249;</button>
+        <div class="gallery-modal__track"></div>
+        <button type="button" class="gallery-modal__arrow gallery-modal__arrow--next" aria-label="Next image">&#8250;</button>
+        <div class="gallery-modal__dots"></div>
+      </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/current-device@0.10.2/umd/current-device.min.js"></script>
     <script src="/js/script.js"></script>
+    <script src="/js/description.js"></script>
   </body>
 </html>

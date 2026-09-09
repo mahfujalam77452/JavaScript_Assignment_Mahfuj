@@ -351,6 +351,232 @@ async function fetchNearbyProperties(sortValue) {
 }
 
 
+// ===== Gallery Modal (Task 5) =====
+
+let galleryImages = [];
+let currentImageIndex = 0;
+let isLoadingGallery = false;
+let galleryTouchStartX = 0;
+let galleryTransitionLocked = false;
+
+// Loads all gallery image paths once when the page needs them.
+async function loadGalleryImages() {
+	if (galleryImages.length > 0 || isLoadingGallery) return galleryImages;
+
+	isLoadingGallery = true;
+	try {
+		const response = await fetch('/images');
+		if (!response.ok) throw new Error('Failed to load gallery images');
+		galleryImages = await response.json();
+	} finally {
+		isLoadingGallery = false;
+	}
+
+	return galleryImages;
+}
+
+// Opens the gallery on desktop and reuses the image list loaded at page start.
+async function openGalleryModal() {
+	const modal = document.querySelector('#galleryModal');
+	if (!modal || window.innerWidth < 1024 || isLoadingGallery) return;
+
+	modal.classList.add('is-open');
+	modal.setAttribute('aria-hidden', 'false');
+	document.body.classList.add('modal-open');
+
+	try {
+		await loadGalleryImages();
+		renderGalleryImages();
+	} catch (error) {
+		const track = modal.querySelector('.gallery-modal__track');
+		if (track) track.textContent = "Couldn't load images";
+	} finally {
+		isLoadingGallery = false;
+	}
+}
+
+// Renders the API images inside the existing mobile/tablet hero carousel.
+function renderInlineGallery() {
+	const track = document.querySelector('.gallery-carousel__track');
+	if (!track || galleryImages.length === 0) return;
+
+	track.replaceChildren();
+	galleryImages.forEach((imageUrl, index) => {
+		const image = document.createElement('img');
+		image.src = imageUrl;
+		image.alt = `Gallery image ${index + 1}`;
+		track.append(image);
+	});
+	updateInlineGallery();
+}
+
+// Moves the inline carousel and keeps its five dots synchronized.
+function updateInlineGallery() {
+	const track = document.querySelector('.gallery-carousel__track');
+	const dots = Array.from(document.querySelectorAll('.carousel-dots .dot'));
+	if (!track) return;
+
+	track.style.transform = `translateX(-${currentImageIndex * 100}%)`;
+	const firstIndex = Math.min(
+		Math.max(currentImageIndex - 2, 0),
+		Math.max(galleryImages.length - dots.length, 0)
+	);
+	dots.forEach((dot, dotIndex) => {
+		const imageIndex = firstIndex + dotIndex;
+		dot.dataset.inlineIndex = imageIndex;
+		dot.setAttribute('aria-label', `Show image ${imageIndex + 1}`);
+		dot.classList.toggle('active', imageIndex === currentImageIndex);
+	});
+}
+
+// Changes the inline mobile/tablet image while staying within the image list.
+function showInlineImage(index) {
+	if (galleryImages.length === 0) return;
+	currentImageIndex = Math.max(0, Math.min(index, galleryImages.length - 1));
+	updateInlineGallery();
+}
+
+// Connects the inline arrows, dots, and swipe gesture without opening a modal.
+function initInlineGallery() {
+	const carousel = document.querySelector('.gallery-carousel');
+	if (!carousel) return;
+
+	carousel.querySelector('.gallery-carousel__arrow--prev')?.addEventListener('click', () => {
+		showInlineImage(currentImageIndex - 1);
+	});
+	carousel.querySelector('.gallery-carousel__arrow--next')?.addEventListener('click', () => {
+		showInlineImage(currentImageIndex + 1);
+	});
+	carousel.querySelectorAll('.carousel-dots .dot').forEach((dot) => {
+		dot.addEventListener('click', () => showInlineImage(Number(dot.dataset.inlineIndex)));
+	});
+
+	carousel.addEventListener('touchstart', (event) => {
+		galleryTouchStartX = event.changedTouches[0].screenX;
+	}, { passive: true });
+	carousel.addEventListener('touchend', (event) => {
+		const distance = event.changedTouches[0].screenX - galleryTouchStartX;
+		if (Math.abs(distance) >= 50) {
+			showInlineImage(currentImageIndex + (distance < 0 ? 1 : -1));
+		}
+	}, { passive: true });
+}
+
+// Builds the slider images and resets the gallery to its first image.
+function renderGalleryImages() {
+	const track = document.querySelector('.gallery-modal__track');
+	if (!track) return;
+	track.replaceChildren();
+	currentImageIndex = 0;
+
+	if (galleryImages.length === 0) {
+		track.textContent = 'No images available';
+		updateGalleryPosition();
+		return;
+	}
+
+	galleryImages.forEach((imageUrl, index) => {
+		const image = document.createElement('img');
+		image.src = imageUrl;
+		image.alt = `Gallery image ${index + 1}`;
+		track.append(image);
+	});
+	updateGalleryPosition();
+	renderGalleryDots();
+}
+
+// Moves the slider and refreshes its counter and active dot.
+function updateGalleryPosition() {
+	const track = document.querySelector('.gallery-modal__track');
+	const counter = document.querySelector('.gallery-modal__counter');
+	if (!track) return;
+	track.style.transform = `translateX(-${currentImageIndex * 100}%)`;
+	if (counter) counter.textContent = galleryImages.length
+		? `${currentImageIndex + 1} / ${galleryImages.length}`
+		: '';
+	document.querySelectorAll('.gallery-modal__dot').forEach((dot) => {
+		dot.classList.toggle('active', Number(dot.dataset.index) === currentImageIndex);
+	});
+}
+
+// Renders a maximum of five dots in a moving window around the active image.
+function renderGalleryDots() {
+	const dotsContainer = document.querySelector('.gallery-modal__dots');
+	if (!dotsContainer) return;
+	dotsContainer.replaceChildren();
+	const visibleCount = Math.min(5, galleryImages.length);
+	const firstIndex = Math.min(
+		Math.max(currentImageIndex - 2, 0),
+		Math.max(galleryImages.length - visibleCount, 0)
+	);
+
+	for (let index = firstIndex; index < firstIndex + visibleCount; index += 1) {
+		const dot = document.createElement('button');
+		dot.type = 'button';
+		dot.className = 'gallery-modal__dot';
+		dot.dataset.index = index;
+		dot.setAttribute('aria-label', `Show image ${index + 1}`);
+		dot.addEventListener('click', () => {
+			currentImageIndex = index;
+			updateGalleryPosition();
+			renderGalleryDots();
+		});
+		dotsContainer.append(dot);
+	}
+}
+
+// Advances one image, stopping at the last image.
+function showNextImage() {
+	if (galleryTransitionLocked || currentImageIndex >= galleryImages.length - 1) return;
+	galleryTransitionLocked = true;
+	currentImageIndex += 1;
+	updateGalleryPosition();
+	renderGalleryDots();
+	window.setTimeout(() => { galleryTransitionLocked = false; }, 300);
+}
+
+// Moves back one image, stopping at the first image.
+function showPrevImage() {
+	if (galleryTransitionLocked || currentImageIndex <= 0) return;
+	galleryTransitionLocked = true;
+	currentImageIndex -= 1;
+	updateGalleryPosition();
+	renderGalleryDots();
+	window.setTimeout(() => { galleryTransitionLocked = false; }, 300);
+}
+
+// Closes the gallery and unlocks the page behind the modal.
+function closeGalleryModal() {
+	const modal = document.querySelector('#galleryModal');
+	if (!modal) return;
+	modal.classList.remove('is-open');
+	modal.setAttribute('aria-hidden', 'true');
+	document.body.classList.remove('modal-open');
+}
+
+// Connects the gallery trigger, controls, backdrop, and swipe gestures once.
+function initGalleryModal() {
+	const modal = document.querySelector('#galleryModal');
+	const trigger = document.querySelector('.gallery-view-all');
+	const track = modal?.querySelector('.gallery-modal__track');
+	if (!modal || !trigger || !track) return;
+
+	trigger.addEventListener('click', openGalleryModal);
+	modal.querySelector('.gallery-modal__close')?.addEventListener('click', closeGalleryModal);
+	modal.querySelector('.gallery-modal__backdrop')?.addEventListener('click', closeGalleryModal);
+	modal.querySelector('.gallery-modal__arrow--next')?.addEventListener('click', showNextImage);
+	modal.querySelector('.gallery-modal__arrow--prev')?.addEventListener('click', showPrevImage);
+	track.addEventListener('touchstart', (event) => {
+		galleryTouchStartX = event.changedTouches[0].screenX;
+	}, { passive: true });
+	track.addEventListener('touchend', (event) => {
+		const distance = event.changedTouches[0].screenX - galleryTouchStartX;
+		if (Math.abs(distance) < 50) return;
+		if (distance < 0) showNextImage();
+		else showPrevImage();
+	}, { passive: true });
+}
+
 // Runs when the HTML document has finished loading.
 //
 // It connects the sort dropdown, initializes the carousel,
@@ -374,4 +600,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// Load "Most Popular" properties when the page opens.
 	fetchNearbyProperties('most-popular');
+
+	// Initialize the image gallery modal controls.
+	initGalleryModal();
+	initInlineGallery();
+	loadGalleryImages()
+		.then(renderInlineGallery)
+		.catch(() => {});
 });
