@@ -361,7 +361,9 @@
             </select>
             <label class="filter-label" for="sort-by">Sort by</label>
             <select name="filter" id="sort-by">
-              <option value="">MOST POPULAR</option>
+              <option value="most-popular" selected>Most Popular</option>
+              <option value="highest-price">Highest Price</option>
+              <option value="lowest-price">Lowest Price</option>
             </select>
           </div>
         </div>
@@ -783,19 +785,16 @@
             <button type="button" class="prev-button">PREVIOUS</button>
             <ol class="pagination-list">
               <li class="pagination-item">
-                <a href="#" class="pagination-link">1</a>
+                <a href="#" class="pagination-link" data-carousel-index="0" aria-label="Show property 1">1</a>
               </li>
               <li class="pagination-item">
-                <a href="#" class="pagination-link">2</a>
+                <a href="#" class="pagination-link" data-carousel-index="1" aria-label="Show property 2">2</a>
               </li>
               <li class="pagination-item">
-                <a href="#" class="pagination-link">3</a>
+                <a href="#" class="pagination-link" data-carousel-index="2" aria-label="Show property 3">3</a>
               </li>
               <li class="pagination-item">
-                <a href="#" class="pagination-link">4</a>
-              </li>
-              <li class="pagination-item">
-                <a href="#" class="pagination-link">5</a>
+                <a href="#" class="pagination-link" data-carousel-index="3" aria-label="Show property 4">4</a>
               </li>
             </ol>
             <span>-</span>
@@ -1845,5 +1844,7 @@
         </p>
       </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/current-device@0.10.2/umd/current-device.min.js"></script>
+    <script src="/js/script.js"></script>
   </body>
 </html>

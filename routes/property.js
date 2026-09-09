@@ -60,6 +60,10 @@ router.get('/images', (req, res) => {
                 (entry) => `/images/${encodeURIComponent(entry.name)}`
             );
 
+		if (imageFiles.length < 10) {
+			console.warn(`Expected 10 property images, found ${imageFiles.length}`);
+		}
+
         res.status(200).json(imageFiles);
     } catch (error) {
         res.status(500).json({ error: 'Unable to load images' });

@@ -364,10 +364,8 @@
   text-decoration: none;
 }
 
-/* Mobile-only: turn the numbered pagination into a row of small dots, since
-   the mobile design shows dot pagination for the single-card carousel but
-   the provided markup only has a numbered page list (see README). */
-@media (max-width: 767px) {
+/* Mobile and tablet use the pagination as carousel dots. */
+@media (max-width: 1023.98px) {
   .prev-button,
   .next-button {
     display: none;
@@ -381,7 +379,7 @@
     font-size: 0;
   }
 
-  .pagination-item:first-child .pagination-link {
+  .pagination-link.is-active {
     background-color: var(--color-focus);
   }
 }
@@ -397,16 +395,15 @@
   }
 
   .accomodations-cards {
-    overflow-x: visible;
-    scroll-snap-type: none;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    display: flex;
     gap: var(--space-4);
     margin-bottom: var(--space-4);
   }
 
   .accomodations-card {
-    flex: initial;
+    flex: 0 0 calc((100% - var(--space-4)) / 2);
   }
 
   .accomodation-map {
@@ -424,6 +421,19 @@
 
   .view-all-link {
     margin: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .accomodations-cards {
+    overflow-x: visible;
+    scroll-snap-type: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .accomodations-card {
+    flex: initial;
   }
 }
 
