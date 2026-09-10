@@ -119,6 +119,7 @@ function renderMapMarkers() {
 			position: { lat, lng },
 			map: propertiesMap,
 			title: card.querySelector('.card-title')?.textContent.trim() || 'Nearby property',
+			gmpClickable: true,
 			content: defaultContent
 		});
 		marker.defaultContent = defaultContent;
