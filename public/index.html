@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="header.css" />
     <link rel="stylesheet" href="gallery-modal.css" />
     <link rel="stylesheet" href="booking-widgets.css" />
+    <link rel="stylesheet" href="map.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hotel-datepicker@4.5.0/dist/css/hotel-datepicker.css" />
   </head>
   <body>
@@ -784,11 +785,7 @@
             </div>
           </div>
           <div class="accomodation-map">
-            <img
-              src="/assets/images/accomodation-images/map.jpeg"
-              alt="Map showing nearby accommodation locations"
-              class="map-image"
-            />
+            <div id="map" class="properties-map" aria-label="Map of nearby accommodations"></div>
           </div>
         </div>
         <div class="accomodation-pagination">
@@ -1897,6 +1894,7 @@
     <script src="https://cdn.jsdelivr.net/npm/current-device@0.10.2/umd/current-device.min.js"></script>
     <script src="/js/script.js"></script>
     <script src="/js/description.js"></script>
+    <script src="/js/map.js"></script>
     <!-- Fecha dependency -->
 <script src="https://cdn.jsdelivr.net/npm/fecha@4.2.1/dist/fecha.min.js"></script>
 

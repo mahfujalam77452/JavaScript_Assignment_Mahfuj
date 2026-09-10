@@ -106,8 +106,9 @@ function initAccommodationCarousel() {
 // Creates and returns one accommodation card from
 // a single property object received from the API.
 function createNearbyPropertyCard(item) {
-	const property = item.Property;
-	const geoInfo = item.GeoInfo;
+	const property = item.Property || {};
+	const geoInfo = item.GeoInfo || {};
+	const counts = property.Counts || {};
 
 	const card = document.createElement('article');
 
@@ -118,8 +119,8 @@ function createNearbyPropertyCard(item) {
 	// These data attributes can later be used by JavaScript
 	// for maps, filtering, selection, etc.
 	card.dataset.propertyId = item.ID;
-	card.dataset.lat = geoInfo.Lat;
-	card.dataset.lng = geoInfo.Lng;
+	if (geoInfo.Lat !== undefined) card.dataset.lat = geoInfo.Lat;
+	if (geoInfo.Lng !== undefined) card.dataset.lng = geoInfo.Lng;
 
 
 	// Build the card using the existing HTML class structure
@@ -139,8 +140,8 @@ function createNearbyPropertyCard(item) {
 
 					<p class="image-info-text">
 						${property.ReviewScore}
-						${property.Counts.Reviews > 0
-							? ` (${property.Counts.Reviews} REVIEWS)`
+						${counts.Reviews > 0
+							? ` (${counts.Reviews} REVIEWS)`
 							: ''}
 					</p>
 
@@ -185,8 +186,8 @@ function createNearbyPropertyCard(item) {
 					</span>
 
 					<span class="card-review">
-						${property.Counts.Reviews > 0
-							? `${property.Counts.Reviews} reviews`
+						${counts.Reviews > 0
+							? `${counts.Reviews} reviews`
 							: 'No reviews yet'}
 					</span>
 
