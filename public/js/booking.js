@@ -173,17 +173,7 @@ function initBookingWidgets() {
 			}
 		});
 
-        document.addEventListener('click', (event) => {
-	const closeButton = event.target.closest(
-		'.datepicker__close-button'
-	);
-    console.log('Document clicked', event.target);
-
-	if (closeButton) {
-        console.log('Close button clicked');
-		datepicker?.close();
-	}
-});
+       
 
 	
 

@@ -161,6 +161,7 @@
       <div class="gallery-carousel">
         <button class="gallery-carousel__arrow gallery-carousel__arrow--prev" type="button" aria-label="Previous image">&#8249;</button>
         <div class="gallery-carousel__track"></div>
+        <span class="gallery-carousel__counter" aria-hidden="true"></span>
         <button class="gallery-carousel__arrow gallery-carousel__arrow--next" type="button" aria-label="Next image">&#8250;</button>
         <div class="carousel-dots" aria-label="Gallery image navigation">
           <button class="dot active" type="button" data-inline-index="0" aria-label="Show image 1"></button>
@@ -1854,6 +1855,9 @@
         </p>
       </div>
     </footer>
+
+
+    //Gallery Modal
     <div class="gallery-modal" id="galleryModal" aria-hidden="true">
       <div class="gallery-modal__backdrop"></div>
       <div class="gallery-modal__content" role="dialog" aria-modal="true" aria-label="Property image gallery">
@@ -1865,6 +1869,8 @@
         <div class="gallery-modal__dots"></div>
       </div>
     </div>
+
+    //Guest Filter Modal
     <div class="guest-filter-modal" id="guestFilterModal" aria-hidden="true">
       <div class="guest-filter-modal__backdrop"></div>
       <div class="guest-filter-modal__content" role="dialog" aria-modal="true" aria-label="Guest filters">
@@ -1886,6 +1892,8 @@
         </div>
       </div>
     </div>
+
+    //All Script Link
     <script src="https://cdn.jsdelivr.net/npm/current-device@0.10.2/umd/current-device.min.js"></script>
     <script src="/js/script.js"></script>
     <script src="/js/description.js"></script>
