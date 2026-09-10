@@ -1,17 +1,22 @@
 // Toggles the extra hero description text and keeps the link label in sync.
 function initDescriptionToggle() {
-	const description = document.querySelector('.description');
-	const toggle = description?.querySelector('.read-more');
-	const fullText = description?.querySelector('.description__full');
-	const label = toggle?.querySelector('.read-more-label');
-
-	if (!toggle || !fullText || !label) return;
-
-	toggle.addEventListener('click', (event) => {
+	const readMoreLink = document.querySelector(".read-more");
+	const descriptionFull = document.querySelector(".description__full");
+    const readMoreLabel = readMoreLink.querySelector(".read-more-label");
+	const icon = readMoreLink.querySelector(".icon-chevron")
+	readMoreLink.addEventListener("click", (event) => {
 		event.preventDefault();
-		const isExpanded = toggle.classList.toggle('is-expanded');
-		fullText.hidden = !isExpanded;
-		label.textContent = isExpanded ? 'Collapse' : 'Read more';
+
+		
+		if (descriptionFull.hidden) {
+			descriptionFull.hidden = false;
+			readMoreLabel.innerText = "Collapse";
+			icon.src = "../assets/Icon/hero-section-icon/collapse_13726.png"
+		} else {
+			descriptionFull.hidden = true;
+			readMoreLabel.innerText = "Read more";
+			icon.src = "../assets/Icon/hero-section-icon/down-arrow.png"
+		}
 	});
 }
 

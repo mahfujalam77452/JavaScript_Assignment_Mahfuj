@@ -18,7 +18,7 @@ body.modal-open {
 .gallery-modal__backdrop {
   position: absolute;
   inset: 0;
-  background: #0f1e16;
+  background: rgba(15, 30, 22, 0.22);
 }
 
 .gallery-modal__content {
