@@ -10,14 +10,13 @@ let propertyInfoWindow = null;
 window.activePropertyId = null;
 const defaultMapCenter = { lat: 28.5383, lng: -81.3792 };
 
-function getHighlightedMarkerIcon() {
-	return {
-		url: `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(
-			'<svg xmlns="http://www.w3.org/2000/svg" width="40" height="56" viewBox="0 0 40 56"><path fill="#1976d2" stroke="#ffffff" stroke-width="2" d="M20 1C9.5 1 1 9.5 1 20c0 14 19 35 19 35s19-21 19-35C39 9.5 30.5 1 20 1z"/><circle cx="20" cy="20" r="6" fill="#ffffff"/></svg>'
-		)}`,
-		scaledSize: new google.maps.Size(30, 42),
-		anchor: new google.maps.Point(15, 42)
-	};
+function createMarkerPin(backgroundColor) {
+	return new google.maps.marker.PinElement({
+		background: backgroundColor,
+		borderColor: '#ffffff',
+		glyphColor: '#ffffff',
+		scale: 1.1
+	});
 }
 
 // Prevent map-specific code from throwing when Google Maps has not loaded.
@@ -28,7 +27,9 @@ function hasGoogleMaps() {
 // Remove markers from the previous property list before rebuilding them.
 function clearMapMarkers() {
 	propertyInfoWindow?.close();
-	mapMarkers.forEach((marker) => marker.setMap(null));
+	mapMarkers.forEach((marker) => {
+		marker.map = null;
+	});
 	mapMarkers = [];
 	propertyIdToMarker.clear();
 	highlightedMarker = null;
@@ -57,10 +58,10 @@ function createPropertyPreview(card) {
 		<div class="map-property-preview">
 			<img class="map-property-preview__image" src="${escapeInfoWindowText(image?.src)}" alt="${escapeInfoWindowText(title)}">
 			<div class="map-property-preview__details">
-				<strong class="map-property-preview__title">${escapeInfoWindowText(title || 'Nearby property')}</strong>
-				<span class="map-property-preview__score">${escapeInfoWindowText(score || 'Rating unavailable')}</span>
-				<strong class="map-property-preview__price">${escapeInfoWindowText(price || 'Price unavailable')}</strong>
-				<span class="map-property-preview__location">${escapeInfoWindowText(location || 'Location unavailable')}</span>
+				<strong class="map-property-preview__title">${escapeInfoWindowText(title )}</strong>
+				<span class="map-property-preview__score">${escapeInfoWindowText(score )}</span>
+				<strong class="map-property-preview__price">${escapeInfoWindowText(price )}</strong>
+				<span class="map-property-preview__location">${escapeInfoWindowText(location )}</span>
 			</div>
 		</div>
 	`;
@@ -90,11 +91,11 @@ function highlightCard(card) {
 // Change the marker color that corresponds to the card under the pointer.
 function highlightMarker(marker) {
 	if (highlightedMarker && highlightedMarker !== marker) {
-		highlightedMarker.setIcon(null);
+		highlightedMarker.content = highlightedMarker.defaultContent;
 	}
 
 	highlightedMarker = marker;
-	marker.setIcon(getHighlightedMarkerIcon());
+	marker.content = marker.highlightedContent;
 }
 
 // Create markers from the currently rendered cards and wire marker clicks.
@@ -113,18 +114,22 @@ function renderMapMarkers() {
 
 		if (!propertyId || Number.isNaN(lat) || Number.isNaN(lng)) return;
 
-		const marker = new google.maps.Marker({
+		const defaultContent = createMarkerPin('#7b1fa2');
+		const marker = new google.maps.marker.AdvancedMarkerElement({
 			position: { lat, lng },
 			map: propertiesMap,
-			title: card.querySelector('.card-title')?.textContent.trim() || 'Nearby property'
+			title: card.querySelector('.card-title')?.textContent.trim() || 'Nearby property',
+			content: defaultContent
 		});
+		marker.defaultContent = defaultContent;
+		marker.highlightedContent = createMarkerPin('#1976d2');
 
 		mapMarkers.push(marker);
 		propertyIdToMarker.set(propertyId, marker);
 		bounds.extend({ lat, lng });
 		markerCount += 1;
 
-		marker.addListener('click', () => {
+		marker.addEventListener('gmp-click', () => {
 			const matchingCard = Array.from(cards).find(
 				(cardItem) => cardItem.dataset.propertyId === propertyId
 			);
@@ -165,7 +170,7 @@ function initMapCardSync() {
 
 		const marker = propertyIdToMarker.get(card.dataset.propertyId);
 		if (marker && highlightedMarker === marker) {
-			marker.setIcon(null);
+			marker.content = marker.defaultContent;
 			highlightedMarker = null;
 		}
 	}, true);
@@ -179,11 +184,12 @@ function initMapCardSync() {
 // Google Maps calls this global function after the dynamic script loads.
 window.initMap = function initMap() {
 	const mapElement = document.getElementById('map');
-	if (!mapElement || typeof google === 'undefined' || !google.maps) return;
+	if (!mapElement || typeof google === 'undefined' || !google.maps?.marker) return;
 
 	propertiesMap = new google.maps.Map(mapElement, {
 		center: defaultMapCenter,
 		zoom: 11,
+		mapId: 'DEMO_MAP_ID',
 		mapTypeControl: false,
 		streetViewControl: false,
 		fullscreenControl: false
@@ -209,7 +215,7 @@ async function loadGoogleMapsScript() {
 		if (!key) return;
 
 		const script = document.createElement('script');
-		script.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(key)}&callback=initMap`;
+		script.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(key)}&loading=async&libraries=marker&callback=initMap`;
 		script.async = true;
 		script.defer = true;
 		document.head.appendChild(script);
